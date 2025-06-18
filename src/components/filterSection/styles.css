@@ -1,0 +1,37 @@
+.filter-section {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 20;
+}
+
+.filter-section button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-section button:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-section .buy-ticket {
+    background-color: #FD841F;
+    color: white;
+}
+
+.filter-section .buy-ticket:hover {
+    background-color: #e0701a;
+}

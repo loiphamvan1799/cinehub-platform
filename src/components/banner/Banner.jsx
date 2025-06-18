@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css"
-
+import FilterSection from "../filterSection/filterSection";
 const Banner = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
@@ -40,6 +40,7 @@ const Banner = () => {
                     className={index === currentSlide ? 'active' : ''}
                 />
             ))}
+            <FilterSection />
 
             <button className="banner-prev" onClick={prevSlide}>
                 ❮
