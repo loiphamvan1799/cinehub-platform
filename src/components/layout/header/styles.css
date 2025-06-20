@@ -1,35 +1,53 @@
 header {
     background-color: #f8f8f8;
-    padding: 10px 20px;
+    padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
     position: fixed;
-    width: 97.5%;
+    width: 98%;
     top: 0;
     z-index: 1000;
 }
 
+.logo {
+    position: relative;
+    left: 290px;
+}
+
 .logo img {
-    height: 40px;
+    height: 65px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 40px;
 }
 
 nav ul li a {
     color: #333;
     text-decoration: none;
     font-size: 14px;
+    position: relative;
 }
 
 nav ul li a:hover {
     color: #f1c40f;
 }
+
+
+nav ul li a::after {
+    position: absolute;
+    right: -12px;
+    top: 40%;
+    transform: translateY(-50%);
+    color: #333;
+    width: 10px;
+    height: 10px;
+}
+
 
 .search-bar input {
     padding: 5px;
@@ -42,8 +60,21 @@ nav ul li a:hover {
     text-decoration: none;
     margin-left: 20px;
     font-size: 14px;
+    position: relative;
+    right: 200px;
 }
 
 .user-options a:hover {
     color: #f1c40f;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+
+
+.buy-tickets a img {
+    width: 100px;
+    height: 36px;
 }

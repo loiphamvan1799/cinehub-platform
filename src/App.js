@@ -7,9 +7,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main className="main-content">
-        <Banner />
-      </main>
+      <Banner />
       <Footer />
     </Router>
   );

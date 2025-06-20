@@ -32,33 +32,33 @@ const Banner = () => {
 
     return (
         <div className="banner">
-            {slides.map((slide, index) => (
-                <img
-                    key={index}
-                    src={slide.src}
-                    alt={slide.alt}
-                    className={index === currentSlide ? 'active' : ''}
-                />
-            ))}
-            <FilterSection />
-
-            <button className="banner-prev" onClick={prevSlide}>
-                ❮
-            </button>
-            <button className="banner-next" onClick={nextSlide}>
-                ❯
-            </button>
-            <div className="banner-nav">
-                {slides.map((_, index) => (
-                    <span
+            <div className="carousel__wrapper">
+                {slides.map((slide, index) => (
+                    <img
                         key={index}
-                        className={index === currentSlide ? 'active' : ''}
-                        onClick={() => goToSlide(index)}
-                    ></span>
+                        src={slide.src}
+                        alt={slide.alt}
+                        className={index === currentSlide ? "active" : ""}
+                    />
                 ))}
+                <button className="banner-prev" onClick={prevSlide}>
+                    ❮
+                </button>
+                <button className="banner-next" onClick={nextSlide}>
+                    ❯
+                </button>
+                <div className="banner-nav">
+                    {slides.map((_, index) => (
+                        <span
+                            key={index}
+                            className={index === currentSlide ? 'active' : ''}
+                            onClick={() => goToSlide(index)}
+                        ></span>
+                    ))}
+                </div>
             </div>
+            <FilterSection />
         </div>
-
     );
 };
 export default Banner;

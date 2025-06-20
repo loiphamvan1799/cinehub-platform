@@ -1,37 +1,79 @@
 .filter-section {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 20;
+    z-index: 25;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 1152px;
+    height: 55px;
 }
 
 .filter-section button {
-    padding: 8px 16px;
-    border: none;
+    padding: 8px 15px;
     background-color: #fff;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
     font-size: 14px;
     color: #333;
+    position: relative;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+    border: none;
 }
 
-.filter-section button:hover {
-    background-color: #e0e0e0;
+.filter-section button::before {
+    content: attr(data-number);
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #efefef;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #f9ab46;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-section button::after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    width: 10px;
+    height: 10px;
+}
+
+.filter-section .buy-ticket::before {
+    display: none;
+
 }
 
 .filter-section .buy-ticket {
-    background-color: #FD841F;
-    color: white;
+    background-color: #f1c40f;
+    color: #333;
+    border: none;
+    padding: 8px 20px;
+    flex: 1;
 }
 
-.filter-section .buy-ticket:hover {
-    background-color: #e0701a;
+.filter-section .buy-ticket::after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    width: 10px;
+    height: 10px;
 }
