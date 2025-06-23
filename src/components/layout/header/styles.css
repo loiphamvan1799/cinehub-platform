@@ -1,0 +1,114 @@
+header {
+    background-color: #f8f8f8;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: 98%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    position: relative;
+    left: 290px;
+}
+
+.logo img {
+    height: 65px;
+    position: relative;
+    right: 150px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a svg {
+    margin-left: 5px;
+}
+
+nav ul li a:hover {
+    color: #f1c40f;
+}
+
+.buy-tickets {
+    position: relative;
+    width: 100px;
+    height: 35px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.user-options a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    position: relative;
+    right: 130px;
+}
+
+.user-options a:hover {
+    color: #f1c40f;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+.buy-tickets a img {
+    width: 100px;
+    height: 36px;
+}
+
+
+
+nav ul li:hover .dropdownn {
+    display: block;
+}
+
+.dropdownn li {
+    padding: 5px 15px;
+    color: #333;
+}
+
+.dropdownn li:hover {
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+.dropdownn {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fbfbfb;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    list-style: none;
+    padding: 5px 0;
+    display: none;
+    z-index: 1001;
+}
