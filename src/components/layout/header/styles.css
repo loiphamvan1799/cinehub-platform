@@ -18,6 +18,8 @@ header {
 
 .logo img {
     height: 65px;
+    position: relative;
+    right: 150px;
 }
 
 nav ul {
@@ -26,28 +28,32 @@ nav ul {
     gap: 40px;
 }
 
+nav ul li {
+    position: relative;
+}
+
 nav ul li a {
     color: #333;
     text-decoration: none;
     font-size: 14px;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a svg {
+    margin-left: 5px;
 }
 
 nav ul li a:hover {
     color: #f1c40f;
 }
 
-
-nav ul li a::after {
-    position: absolute;
-    right: -12px;
-    top: 40%;
-    transform: translateY(-50%);
-    color: #333;
-    width: 10px;
-    height: 10px;
+.buy-tickets {
+    position: relative;
+    width: 100px;
+    height: 35px;
 }
-
 
 .search-bar input {
     padding: 5px;
@@ -61,7 +67,7 @@ nav ul li a::after {
     margin-left: 20px;
     font-size: 14px;
     position: relative;
-    right: 200px;
+    right: 130px;
 }
 
 .user-options a:hover {
@@ -72,9 +78,37 @@ nav ul li a::after {
     cursor: pointer;
 }
 
-
-
 .buy-tickets a img {
     width: 100px;
     height: 36px;
+}
+
+
+
+nav ul li:hover .dropdownn {
+    display: block;
+}
+
+.dropdownn li {
+    padding: 5px 15px;
+    color: #333;
+}
+
+.dropdownn li:hover {
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+.dropdownn {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fbfbfb;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    list-style: none;
+    padding: 5px 0;
+    display: none;
+    z-index: 1001;
 }

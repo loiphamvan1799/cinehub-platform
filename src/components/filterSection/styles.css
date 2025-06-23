@@ -34,7 +34,7 @@
     color: #efefef;
     font-weight: bold;
     font-size: 12px;
-    background-color: #f9ab46;
+    background-color: rgb(245 128 32);
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -54,26 +54,61 @@
     height: 10px;
 }
 
-.filter-section .buy-ticket::before {
-    display: none;
-
-}
-
 .filter-section .buy-ticket {
-    background-color: #f1c40f;
+    background-color: rgb(245 128 32);
     color: #333;
     border: none;
     padding: 8px 20px;
     flex: 1;
 }
 
+.filter-section .buy-ticket::before {
+    display: none;
+}
+
 .filter-section .buy-ticket::after {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
+    display: none;
+}
+
+.dropdown {
     position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    list-style: none;
+    padding: 5px 0;
+    z-index: 1001;
+    display: none;
+}
+
+.filter-section button.active .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    padding: 5px 15px;
     color: #333;
-    width: 10px;
-    height: 10px;
+    cursor: pointer;
+}
+
+.dropdown li:hover {
+    background-color: rgb(245 128 32);
+    color: #fff;
+}
+
+
+
+
+
+.filter-section .buy-ticket.disabled {
+    background-color: rgb(245 168 72);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.filter-section .buy-ticket.disabled:hover {
+    background-color: rgb(245 168 72);
 }
