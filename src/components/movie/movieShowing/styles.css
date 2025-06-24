@@ -1,0 +1,84 @@
+.movieFilter {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    padding-left: 160px;
+}
+
+.filterNav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filterTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-right: 20px;
+}
+
+.vertical-bar {
+    width: 5px;
+    height: 24px;
+    background-color: #007bff;
+    margin-right: 10px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.filterNav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filterNav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.filterNav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 50%;
+    background-color: #007bff;
+    border-radius: 1px;
+}
+
+.filterNav a:hover {
+    color: #5dade2;
+}
+
+.green-text {
+    color: #007bff !important;
+}
+
+.with-icon svg {
+    vertical-align: middle;
+    color: #007bff;
+}
+
+.moviesSection {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}

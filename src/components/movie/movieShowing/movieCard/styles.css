@@ -1,0 +1,141 @@
+.movieCard {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.poster-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.movie-info-overlay {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rating-badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rating-badge .star {
+    color: #f1c40f;
+    margin-right: 4px;
+}
+
+.age-badge {
+    background-color: #f39c12;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 5px 7px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.card-details {
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.movie-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 4px 0;
+    color: #000;
+}
+
+.release-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+}
+
+.poster-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.poster-wrapper:hover .poster {
+    filter: brightness(50%);
+    transition: filter 0.3s ease;
+}
+
+.button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 120px;
+}
+
+.poster-wrapper:hover .button-overlay {
+    opacity: 1;
+}
+
+.card-button {
+    background-color: rgb(241, 160, 94);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.card-button:hover {
+    background-color: rgb(245 128 32);
+}
+
+.card-button .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.trailer-button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.trailer-button:hover {
+    background-color: rgb(245, 128, 32);
+    border-color: rgb(245, 128, 32);
+    color: white;
+}
