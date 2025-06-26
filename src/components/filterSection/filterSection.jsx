@@ -1,143 +1,203 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 
 const FilterSection = () => {
     const [selectedValues, setSelectedValues] = useState({
-        phim: 'Chọn Phim',
-        rap: 'Chọn Rạp',
-        ngay: 'Chọn Ngày',
-        suat: 'Chọn Suất',
+        movie: 'Chọn Phim',
+        theater: 'Chọn Rạp',
+        day: 'Chọn Ngày',
+        rate: 'Chọn Suất',
     });
     const [currentStep, setCurrentStep] = useState(0);
     const [openDropdown, setOpenDropdown] = useState(null);
+    const filterSectionRef = useRef(null);
+
+    const dropdownData = {
+        movie: [
+            'Ma Không Đầu',
+            'Elio Cậu Bé Đến Từ Trái Đất',
+            '28 Năm Sau Tận Thế',
+            'Bí Kíp Luyện Rồng',
+            'Út Lan: Oán Linh Giữ Của',
+            'Trạng Quỳnh Nhí: Truyền Thuyết Kim Ngưu',
+            'Mượn Rượu Đẩy Kèo',
+            'F1®',
+            'Kỳ Án Trên Đồi Tuyết',
+            'Bóng Ma Cõi Mạng',
+            'Dan Da Dan: Tà Nhãn',
+            'Bộ 5 Siêu Đẳng Cấp',
+            'Colorful Stage! Một Miku Không Thể Hát',
+            'Dế Mèn: Cuộc Phiêu Lưu Tới Xóm Lầy Lội',
+            'Nhiệm Vụ: Bất Khả Thi - Nghiệp Báo Cuối Cùng',
+            'Lilo & Stitch',
+            'Phim Điện Ảnh Doraemon: Nobita Và Cuộc Phiêu Lưu Vào Thế Giới Trong Tranh',
+            'Mưa Lửa - Anh Trai Vượt Ngàn Chông Gai Movie',
+            'Lật Mặt 8: Vòng Tay Nắng',
+        ],
+        theater: [
+            'Galaxy Sala',
+            'Galaxy Tân Bình',
+            'Galaxy Kinh Dương Vương',
+            'Galaxy Đà Nẵng',
+            'Galaxy Aeon Mall Huế',
+            'Galaxy Parc Mall Q8',
+            'Galaxy Cine+ Thiso Phan Huy Ích',
+            'Galaxy Cine+ Gold Coast Nha Trang',
+            'Galaxy Huỳnh Tấn Phát',
+            'Galaxy Vinh',
+            'Galaxy Hải Phòng',
+            'Galaxy Nguyễn Văn Quá',
+            'Galaxy Buôn Ma Thuột',
+            'Galaxy Trường Chinh',
+            'Galaxy GO! Mall Bà Rịa',
+        ],
+        day: [
+            'thứ ba, 24/06/2025',
+            'thứ tư, 25/06/2025',
+            'thứ năm, 26/06/2025',
+        ],
+        rate: [
+            '10:15',
+            '14:15',
+            '12:00',
+        ],
+    };
 
     const handleSelect = (type, value) => {
         setSelectedValues(prev => {
             const newValues = { ...prev, [type]: value };
-            if (type === 'phim' && value !== 'Chọn Phim') {
-                newValues.rap = 'Chọn Rạp';
-                newValues.ngay = 'Chọn Ngày';
-                newValues.suat = 'Chọn Suất';
+            if (type === 'movie' && value !== 'Chọn Phim') {
+                newValues.theater = 'Chọn Rạp';
+                newValues.day = 'Chọn Ngày';
+                newValues.rate = 'Chọn Suất';
                 setCurrentStep(1);
-            } else if (type === 'rap' && value !== 'Chọn Rạp') {
-                newValues.ngay = 'Chọn Ngày';
-                newValues.suat = 'Chọn Suất';
+            } else if (type === 'theater' && value !== 'Chọn Rạp') {
+                newValues.day = 'Chọn Ngày';
+                newValues.rate = 'Chọn Suất';
                 setCurrentStep(2);
-            } else if (type === 'ngay' && value !== 'Chọn Ngày') {
-                newValues.suat = 'Chọn Suất';
+            } else if (type === 'day' && value !== 'Chọn Ngày') {
+                newValues.rate = 'Chọn Suất';
                 setCurrentStep(3);
-            } else if (type === 'suat' && value !== 'Chọn Suất') {
+            } else if (type === 'rate' && value !== 'Chọn Suất') {
                 setCurrentStep(4);
-            } else if (value === 'Chọn Phim' || value === 'Chọn Rạp' || value === 'Chọn Ngày' || value === 'Chọn Suất') {
-                if (type === 'phim') {
-                    newValues.rap = 'Chọn Rạp';
-                    newValues.ngay = 'Chọn Ngày';
-                    newValues.suat = 'Chọn Suất';
+            } else if (value === 'Chọn movie' || value === 'Chọn Rạp' || value === 'Chọn Ngày' || value === 'Chọn Suất') {
+                if (type === 'movie') {
+                    newValues.theater = 'Chọn Rạp';
+                    newValues.day = 'Chọn Ngày';
+                    newValues.rate = 'Chọn Suất';
                     setCurrentStep(0);
-                } else if (type === 'rap') {
-                    newValues.ngay = 'Chọn Ngày';
-                    newValues.suat = 'Chọn Suất';
+                } else if (type === 'theater') {
+                    newValues.day = 'Chọn Ngày';
+                    newValues.rate = 'Chọn Suất';
                     setCurrentStep(1);
-                } else if (type === 'ngay') {
-                    newValues.suat = 'Chọn Suất';
+                } else if (type === 'day') {
+                    newValues.rate = 'Chọn Suất';
                     setCurrentStep(2);
                 }
             }
             return newValues;
         });
-        setOpenDropdown(null);
     };
 
     const toggleDropdown = (type) => {
         setOpenDropdown(prev => (prev === type ? null : type));
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (filterSectionRef.current && !filterSectionRef.current.contains(event.target)) {
+                setOpenDropdown(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="filter-section">
+        <div className="filter-section" ref={filterSectionRef}>
             <button
                 data-number="1"
-                onClick={() => toggleDropdown('phim')}
-                className={openDropdown === 'phim' ? 'active' : ''}
+                onClick={() => toggleDropdown('movie')}
+                className={openDropdown === 'movie' ? 'active' : ''}
             >
-                <span className="button-text">{selectedValues.phim}</span>
-                {openDropdown === 'phim' && (
+                <span className="button-text">{selectedValues.movie}</span>
+                {openDropdown === 'movie' && (
                     <ul className="dropdown">
-                        <li className={selectedValues.phim === 'Ma Không Đầu' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Ma Không Đầu')}>Ma Không Đầu</li>
-                        <li className={selectedValues.phim === 'Elio Cậu Bé Đến Từ Trái Đất' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Elio Cậu Bé Đến Từ Trái Đất')}>Elio Cậu Bé Đến Từ Trái Đất</li>
-                        <li className={selectedValues.phim === '28 Năm Sau Tận Thế' ? 'selected' : ''} onClick={() => handleSelect('phim', '28 Năm Sau Tận Thế')}>28 Năm Sau Tận Thế</li>
-                        <li className={selectedValues.phim === 'Bí Kíp Luyện Rồng' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Bí Kíp Luyện Rồng')}>Bí Kíp Luyện Rồng</li>
-                        <li className={selectedValues.phim === 'Út Lan: Oán Linh Giữ Của' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Út Lan: Oán Linh Giữ Của')}>Út Lan: Oán Linh Giữ Của</li>
-                        <li className={selectedValues.phim === 'Trạng Quỳnh Nhí: Truyền Thuyết Kim Ngưu' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Trạng Quỳnh Nhí: Truyền Thuyết Kim Ngưu')}>Trạng Quỳnh Nhí: Truyền Thuyết Kim Ngưu</li>
-                        <li className={selectedValues.phim === 'Mượn Rượu Đẩy Kèo' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Mượn Rượu Đẩy Kèo')}>Mượn Rượu Đẩy Kèo</li>
-                        <li className={selectedValues.phim === 'F1®' ? 'selected' : ''} onClick={() => handleSelect('phim', 'F1®')}>F1®</li>
-                        <li className={selectedValues.phim === 'Kỳ Án Trên Đồi Tuyết' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Kỳ Án Trên Đồi Tuyết')}>Kỳ Án Trên Đồi Tuyết</li>
-                        <li className={selectedValues.phim === 'Bóng Ma Cõi Mạng' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Bóng Ma Cõi Mạng')}>Bóng Ma Cõi Mạng</li>
-                        <li className={selectedValues.phim === 'Dan Da Dan: Tà Nhãn' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Dan Da Dan: Tà Nhãn')}>Dan Da Dan: Tà Nhãn</li>
-                        <li className={selectedValues.phim === 'Bộ 5 Siêu Đẳng Cấp' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Bộ 5 Siêu Đẳng Cấp')}>Bộ 5 Siêu Đẳng Cấp</li>
-                        <li className={selectedValues.phim === 'Colorful Stage! Một Miku Không Thể Hát' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Colorful Stage! Một Miku Không Thể Hát')}>Colorful Stage! Một Miku Không Thể Hát</li>
-                        <li className={selectedValues.phim === 'Dế Mèn: Cuộc Phiêu Lưu Tới Xóm Lầy Lội' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Dế Mèn: Cuộc Phiêu Lưu Tới Xóm Lầy Lội')}>Dế Mèn: Cuộc Phiêu Lưu Tới Xóm Lầy Lội</li>
-                        <li className={selectedValues.phim === 'Nhiệm Vụ: Bất Khả Thi - Nghiệp Báo Cuối Cùng' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Nhiệm Vụ: Bất Khả Thi - Nghiệp Báo Cuối Cùng')}>Nhiệm Vụ: Bất Khả Thi - Nghiệp Báo Cuối Cùng</li>
-                        <li className={selectedValues.phim === 'Lilo & Stitch' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Lilo & Stitch')}>Lilo & Stitch</li>
-                        <li className={selectedValues.phim === 'Phim Điện Ảnh Doraemon: Nobita Và Cuộc Phiêu Lưu Vào Thế Giới Trong Tranh' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Phim Điện Ảnh Doraemon: Nobita Và Cuộc Phiêu Lưu Vào Thế Giới Trong Tranh')}>Phim Điện Ảnh Doraemon: Nobita Và Cuộc Phiêu Lưu Vào Thế Giới Trong Tranh</li>
-                        <li className={selectedValues.phim === 'Mưa Lửa - Anh Trai Vượt Ngàn Chông Gai Movie' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Mưa Lửa - Anh Trai Vượt Ngàn Chông Gai Movie')}>Mưa Lửa - Anh Trai Vượt Ngàn Chông Gai Movie</li>
-                        <li className={selectedValues.phim === 'Lật Mặt 8: Vòng Tay Nắng' ? 'selected' : ''} onClick={() => handleSelect('phim', 'Lật Mặt 8: Vòng Tay Nắng')}>Lật Mặt 8: Vòng Tay Nắng</li>
+                        {dropdownData.movie.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.movie === item ? 'selected' : ''}
+                                onClick={() => handleSelect('movie', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>
             <button
                 data-number="2"
-                onClick={() => toggleDropdown('rap')}
-                className={openDropdown === 'rap' ? 'active' : currentStep < 1 ? 'disabled' : ''}
+                onClick={() => toggleDropdown('theater')}
+                className={openDropdown === 'theater' ? 'active' : currentStep < 1 ? 'disabled' : ''}
                 disabled={currentStep < 1}
             >
-                <span className="button-text">{selectedValues.rap}</span>
-                {openDropdown === 'rap' && (
+                <span className="button-text">{selectedValues.theater}</span>
+                {openDropdown === 'theater' && (
                     <ul className="dropdown">
-                        <li className={selectedValues.rap === 'Galaxy Sala' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Sala')}>Galaxy Sala</li>
-                        <li className={selectedValues.rap === 'Galaxy Tân Bình' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Tân Bình')}>Galaxy Tân Bình</li>
-                        <li className={selectedValues.rap === 'Galaxy Kinh Dương Vương' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Kinh Dương Vương')}>Galaxy Kinh Dương Vương</li>
-                        <li className={selectedValues.rap === 'Galaxy Đà Nẵng' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Đà Nẵng')}>Galaxy Đà Nẵng</li>
-                        <li className={selectedValues.rap === 'Galaxy Aeon Mall Huế' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Aeon Mall Huế')}>Galaxy Aeon Mall Huế</li>
-                        <li className={selectedValues.rap === 'Galaxy Parc Mall Q8' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Parc Mall Q8')}>Galaxy Parc Mall Q8</li>
-                        <li className={selectedValues.rap === 'Galaxy Cine+ Thiso Phan Huy Ích' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Cine+ Thiso Phan Huy Ích')}>Galaxy Cine+ Thiso Phan Huy Ích</li>
-                        <li className={selectedValues.rap === 'Galaxy Cine+ Gold Coast Nha Trang' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Cine+ Gold Coast Nha Trang')}>Galaxy Cine+ Gold Coast Nha Trang</li>
-                        <li className={selectedValues.rap === 'Galaxy Huỳnh Tấn Phát' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Huỳnh Tấn Phát')}>Galaxy Huỳnh Tấn Phát</li>
-                        <li className={selectedValues.rap === 'Galaxy Vinh' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Vinh')}>Galaxy Vinh</li>
-                        <li className={selectedValues.rap === 'Galaxy Hải Phòng' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Hải Phòng')}>Galaxy Hải Phòng</li>
-                        <li className={selectedValues.rap === 'Galaxy Nguyễn Văn Quá' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Nguyễn Văn Quá')}>Galaxy Nguyễn Văn Quá</li>
-                        <li className={selectedValues.rap === 'Galaxy Buôn Ma Thuột' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Buôn Ma Thuột')}>Galaxy Buôn Ma Thuột</li>
-                        <li className={selectedValues.rap === 'Galaxy Trường Chinh' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy Trường Chinh')}>Galaxy Trường Chinh</li>
-                        <li className={selectedValues.rap === 'Galaxy GO! Mall Bà Rịa' ? 'selected' : ''} onClick={() => handleSelect('rap', 'Galaxy GO! Mall Bà Rịa')}>Galaxy GO! Mall Bà Rịa</li>
+                        {dropdownData.theater.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.theater === item ? 'selected' : ''}
+                                onClick={() => handleSelect('theater', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>
             <button
                 data-number="3"
-                onClick={() => toggleDropdown('ngay')}
-                className={openDropdown === 'ngay' ? 'active' : currentStep < 2 ? 'disabled' : ''}
+                onClick={() => toggleDropdown('day')}
+                className={openDropdown === 'day' ? 'active' : currentStep < 2 ? 'disabled' : ''}
                 disabled={currentStep < 2}
             >
-                <span className="button-text">{selectedValues.ngay}</span>
-                {openDropdown === 'ngay' && (
+                <span className="button-text">{selectedValues.day}</span>
+                {openDropdown === 'day' && (
                     <ul className="dropdown">
-                        <li className={selectedValues.ngay === 'thứ ba, 24/06/2025' ? 'selected' : ''} onClick={() => handleSelect('ngay', 'thứ ba, 24/06/2025')}>thứ ba, 24/06/2025</li>
-                        <li className={selectedValues.ngay === 'thứ tư, 25/06/2025' ? 'selected' : ''} onClick={() => handleSelect('ngay', 'thứ tư, 25/06/2025')}>thứ tư, 25/06/2025</li>
-                        <li className={selectedValues.ngay === 'thứ năm, 26/06/2025' ? 'selected' : ''} onClick={() => handleSelect('ngay', 'thứ năm, 26/06/2025')}>thứ năm, 26/06/2025</li>
+                        {dropdownData.day.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.day === item ? 'selected' : ''}
+                                onClick={() => handleSelect('day', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>
             <button
                 data-number="4"
-                onClick={() => toggleDropdown('suat')}
-                className={openDropdown === 'suat' ? 'active' : currentStep < 3 ? 'disabled' : ''}
+                onClick={() => toggleDropdown('rate')}
+                className={openDropdown === 'rate' ? 'active' : currentStep < 3 ? 'disabled' : ''}
                 disabled={currentStep < 3}
             >
-                <span className="button-text">{selectedValues.suat}</span>
-                {openDropdown === 'suat' && (
+                <span className="button-text">{selectedValues.rate}</span>
+                {openDropdown === 'rate' && (
                     <ul className="dropdown">
-                        <li className={selectedValues.suat === '10:15' ? 'selected' : ''} onClick={() => handleSelect('suat', '10:15')}>10:15</li>
-                        <li className={selectedValues.suat === '14:15' ? 'selected' : ''} onClick={() => handleSelect('suat', '14:15')}>14:15</li>
-                        <li className={selectedValues.suat === '12:00' ? 'selected' : ''} onClick={() => handleSelect('suat', '12:00')}>12:00</li>
+                        {dropdownData.rate.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.rate === item ? 'selected' : ''}
+                                onClick={() => handleSelect('rate', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>

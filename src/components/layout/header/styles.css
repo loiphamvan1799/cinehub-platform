@@ -5,10 +5,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
-    position: fixed;
     width: 98%;
-    top: 0;
-    z-index: 1000;
 }
 
 .logo {
@@ -46,7 +43,7 @@ nav ul li a svg {
 }
 
 nav ul li a:hover {
-    color: #f1c40f;
+    color: rgb(245 128 32);
 }
 
 .buy-tickets {
@@ -93,7 +90,7 @@ nav ul li:hover .dropdownn {
 }
 
 .dropdownn li:hover {
-    background-color: #f1c40f;
+    background-color: rgb(244, 173, 115);
     color: #fff;
 }
 
