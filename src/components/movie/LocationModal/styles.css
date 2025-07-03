@@ -1,0 +1,99 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+}
+
+.modal-container {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    max-height: 375px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+.close-button img {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.location-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.location-item:hover {
+    opacity: 0.8;
+}
+
+.location-item img {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.25rem;
+    border-radius: 50%;
+    background-color: #4682b4;
+    /* Blue background for icons */
+    padding: 0.25rem;
+    object-fit: contain;
+    /* Ensure icons fit within the circular background */
+}
+
+.location-item h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.location-item.selected::after {
+    content: '✔';
+    /* Orange checkmark */
+    color: #ff6200;
+    /* Orange color */
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    display: block;
+}

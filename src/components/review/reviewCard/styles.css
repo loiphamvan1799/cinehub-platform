@@ -1,0 +1,126 @@
+.reviewCard {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.review-poster-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.review-poster {
+    width: 600px;
+    height: 400px;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.review-poster:hover {
+    transform: scale(1.05);
+}
+
+.review-card-details {
+    text-align: left;
+    overflow: hidden;
+}
+
+.review-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 4px 0;
+    color: #000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.review-title:hover {
+    color: rgb(11 88 213 / 93%);
+}
+
+.review-actions {
+    display: flex;
+    gap: 8px;
+    padding: 8px 0px;
+    justify-content: flex-start;
+}
+
+.review-like-button {
+    font-size: 0.625rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: rgb(64 118 251);
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.review-view-button {
+    font-size: 0.625rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px;
+    border-radius: 4px;
+    background-color: rgb(233 236 239);
+    color: #000000;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.review-like-button:hover {
+    background-color: rgb(44, 88, 201);
+    color: #fff;
+}
+
+.review-like-button svg,
+.review-view-button svg {
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+}
+
+.reviewArticle:first-child .descriptions {
+    margin-top: 28px;
+}
+
+.reviewArticle:last-child .descriptions {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    height: 100%;
+    padding: 0 12px;
+}
+
+.reviewArticle:last-child .reviewCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+}
+
+.reviewArticle:last-child .review-action {
+    position: relative;
+    top: 15px;
+}
+
+.review-like-button svg,
+.review-view-button svg {
+    width: 15px;
+    height: 11px;
+}

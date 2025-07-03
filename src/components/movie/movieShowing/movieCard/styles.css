@@ -18,6 +18,10 @@
     display: block;
     border-radius: 8px;
     object-fit: cover;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .movie-info-overlay {

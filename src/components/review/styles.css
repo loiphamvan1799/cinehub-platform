@@ -1,0 +1,155 @@
+.reviewFilter,
+.movieFilter {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    padding-left: 160px;
+}
+
+.reviewNav,
+.filterNav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.reviewTitle,
+.filterTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-right: 20px;
+}
+
+.review-vertical-bar,
+.vertical-bar {
+    width: 5px;
+    height: 24px;
+    background-color: #007bff;
+    margin-right: 10px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.reviewNav a,
+.filterNav a {
+    color: #666;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 4px;
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.7;
+}
+
+.reviewNav a.active,
+.filterNav a.active {
+    color: #007bff;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.reviewNav a.active::after,
+.filterNav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 50%;
+    background-color: #007bff;
+    border-radius: 1px;
+}
+
+.reviewNav a:hover,
+.filterNav a:hover {
+    color: #5dade2;
+    opacity: 0.9;
+}
+
+.green-text {
+    color: #007bff !important;
+    opacity: 1;
+}
+
+.with-icon svg {
+    vertical-align: middle;
+    color: #007bff;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.reviewWrapper {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reviewArticle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.reviewArticle:first-child .reviewCard {
+    height: 100%;
+}
+
+.reviewArticle:first-child .review-poster-wrapper {
+    height: 350px;
+}
+
+.reviewArticle:last-child .reviewCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 115px;
+}
+
+.reviewArticle:last-child .review-poster-wrapper {
+    height: 100%;
+    width: 30%;
+    flex-shrink: 0;
+}
+
+.reviewArticle:last-child .review-poster {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.reviewArticle:last-child .review-card-details {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.reviewArticle:last-child .review-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #222;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+}
+
+.reviewArticle:last-child .review-title:hover {
+    color: rgb(11 88 213 / 93%);
+}
+
+.reviewArticle:last-child .review-action {
+    position: relative;
+    top: 15px;
+}

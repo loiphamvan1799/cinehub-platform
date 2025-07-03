@@ -47,6 +47,7 @@ const Banner = () => {
                         src={slide.src}
                         alt={slide.alt}
                         className={index === currentSlide ? "active" : ""}
+                        draggable="false"
                     />
                 ))}
                 <button className="banner-prev" onClick={prevSlide}>

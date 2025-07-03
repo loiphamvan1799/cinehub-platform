@@ -5,7 +5,7 @@ const MovieCard = ({ imgSrc, title, rating, age }) => {
     return (
         <div className="movieCard">
             <div className="poster-wrapper">
-                <img src={imgSrc} alt={title} className="poster" />
+                <img src={imgSrc} alt={title} className="poster" draggable="false" />
 
                 <>
                     <div className="button-overlay">
