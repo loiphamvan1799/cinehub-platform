@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import "./styles.css"
+import React, { useState, useEffect } from "react";
+import "./styles.css";
 import FilterSection from "../filterSection/filterSection";
+
 const Banner = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
         {
-            src: 'https://cdn.galaxycine.vn/media/2025/6/11/cuon-bang-qu-am-2048_1749635966149.jpg',
+            src: 'https://cdn.galaxycine.vn/media/2025/6/11/cuon-bang-quy-am-2048_1749635966149.jpg',
             alt: 'Cuốn Băng Quỷ Ám',
         },
         {
@@ -37,6 +38,13 @@ const Banner = () => {
     const goToSlide = (index) => {
         setCurrentSlide(index);
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="banner">
@@ -70,4 +78,5 @@ const Banner = () => {
         </div>
     );
 };
+
 export default Banner;
