@@ -1,0 +1,53 @@
+INSERT INTO films (
+    id, name, age, duration, start_date, end_date,
+    image_landscape, image_portrait, slug, trailer,
+    rate, total_votes, views, created_at
+) VALUES
+(
+    '08d2f4e2-77e4-49ef-aa93-70eb40fb8d51',
+    'Điều Ước Cuối Cùng',
+    '16',
+    114,
+    '2025-07-02 00:00:00',
+    '2025-08-31 00:00:00',
+    'https://cdn.galaxycine.vn/media/2025/6/19/dieu-uoc-cuoi-cung-750_1750327554318.jpg',
+    'https://cdn.galaxycine.vn/media/2025/6/19/dieu-uoc-cuoi-cung-500_1750327555016.jpg',
+    'dieu-uoc-cuoi-cung',
+    'https://www.youtube.com/watch?v=ocepw4Q1yEw',
+    7.9,
+    21,
+    0,
+    '2025-05-30 10:07:26'
+),
+(
+    '78dc9a10-3638-4062-98f1-9eb589929024',
+    'Một Nửa Hoàn Hảo',
+    '16',
+    117,
+    '2025-07-02 00:00:00',
+    '2025-08-03 00:00:00',
+    'https://cdn.galaxycine.vn/media/2025/6/20/mot-nua-hoan-hao-750_1750391504404.jpg',
+    'https://cdn.galaxycine.vn/media/2025/6/20/mot-nua-hoan-hao-500_1750391504780.jpg',
+    'materialists',
+    'https://www.youtube.com/watch?v=uy6nTrRgzIM',
+    7.5,
+    8,
+    0,
+    '2025-03-25 11:22:21'
+),
+(
+    'df2ced79-3897-4242-bc52-1eb96232b49a',
+    'Quan Tài Vợ Quỷ',
+    '18',
+    91,
+    '2025-07-04 00:00:00',
+    '2025-08-31 00:00:00',
+    'https://cdn.galaxycine.vn/media/2025/6/19/quan-tai-vo-qu-750_1750327081378.jpg',
+    'https://cdn.galaxycine.vn/media/2025/6/19/quan-tai-vo-qu-500_1750327081229.jpg',
+    'tomb-watcher',
+    'https://www.youtube.com/watch?v=z5d_g1MOgAk',
+    7.0,
+    7,
+    0,
+    '2025-06-19 16:53:10'
+);
