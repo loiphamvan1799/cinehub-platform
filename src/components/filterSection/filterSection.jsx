@@ -1,138 +1,212 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 
 const FilterSection = () => {
     const [selectedValues, setSelectedValues] = useState({
-        phim: 'Chọn Phim',
-        rap: 'Chọn Rạp',
-        ngay: 'Chọn Ngày',
-        suat: 'Chọn Suất',
+        movie: 'Chọn Phim',
+        theater: 'Chọn Rạp',
+        day: 'Chọn Ngày',
+        rate: 'Chọn Suất',
     });
     const [currentStep, setCurrentStep] = useState(0);
     const [openDropdown, setOpenDropdown] = useState(null);
+    const filterSectionRef = useRef(null);
+
+    const dropdownData = {
+        movie: [
+            'Ma Không Đầu',
+            'Elio Cậu Bé Đến Từ Trái Đất',
+            '28 Năm Sau Tận Thế',
+            'Bí Kíp Luyện Rồng',
+            'Út Lan: Oán Linh Giữ Của',
+            'Trạng Quỳnh Nhí: Truyền Thuyết Kim Ngưu',
+            'Mượn Rượu Đẩy Kèo',
+            'F1®',
+            'Kỳ Án Trên Đồi Tuyết',
+            'Bóng Ma Cõi Mạng',
+            'Dan Da Dan: Tà Nhãn',
+            'Bộ 5 Siêu Đẳng Cấp',
+            'Colorful Stage! Một Miku Không Thể Hát',
+            'Dế Mèn: Cuộc Phiêu Lưu Tới Xóm Lầy Lội',
+            'Nhiệm Vụ: Bất Khả Thi - Nghiệp Báo Cuối Cùng',
+            'Lilo & Stitch',
+            'Phim Điện Ảnh Doraemon: Nobita Và Cuộc Phiêu Lưu Vào Thế Giới Trong Tranh',
+            'Mưa Lửa - Anh Trai Vượt Ngàn Chông Gai Movie',
+            'Lật Mặt 8: Vòng Tay Nắng',
+        ],
+        theater: [
+            'Galaxy Sala',
+            'Galaxy Tân Bình',
+            'Galaxy Kinh Dương Vương',
+            'Galaxy Đà Nẵng',
+            'Galaxy Aeon Mall Huế',
+            'Galaxy Parc Mall Q8',
+            'Galaxy Cine+ Thiso Phan Huy Ích',
+            'Galaxy Cine+ Gold Coast Nha Trang',
+            'Galaxy Huỳnh Tấn Phát',
+            'Galaxy Vinh',
+            'Galaxy Hải Phòng',
+            'Galaxy Nguyễn Văn Quá',
+            'Galaxy Buôn Ma Thuột',
+            'Galaxy Trường Chinh',
+            'Galaxy GO! Mall Bà Rịa',
+        ],
+        day: [
+            'thứ ba, 24/06/2025',
+            'thứ tư, 25/06/2025',
+            'thứ năm, 26/06/2025',
+        ],
+        rate: [
+            '10:15',
+            '14:15',
+            '12:00',
+        ],
+    };
 
     const handleSelect = (type, value) => {
         setSelectedValues(prev => {
             const newValues = { ...prev, [type]: value };
-            if (type === 'phim' && value !== 'Chọn Phim') {
-                newValues.rap = 'Chọn Rạp';
-                newValues.ngay = 'Chọn Ngày';
-                newValues.suat = 'Chọn Suất';
+            if (type === 'movie' && value !== 'Chọn Phim') {
+                newValues.theater = 'Chọn Rạp';
+                newValues.day = 'Chọn Ngày';
+                newValues.rate = 'Chọn Suất';
                 setCurrentStep(1);
-            } else if (type === 'rap' && value !== 'Chọn Rạp') {
-                newValues.ngay = 'Chọn Ngày';
-                newValues.suat = 'Chọn Suất';
+            } else if (type === 'theater' && value !== 'Chọn Rạp') {
+                newValues.day = 'Chọn Ngày';
+                newValues.rate = 'Chọn Suất';
                 setCurrentStep(2);
-            } else if (type === 'ngay' && value !== 'Chọn Ngày') {
-                newValues.suat = 'Chọn Suất';
+            } else if (type === 'day' && value !== 'Chọn Ngày') {
+                newValues.rate = 'Chọn Suất';
                 setCurrentStep(3);
-            } else if (type === 'suat' && value !== 'Chọn Suất') {
+            } else if (type === 'rate' && value !== 'Chọn Suất') {
                 setCurrentStep(4);
-            } else if (value === 'Chọn Phim' || value === 'Chọn Rạp' || value === 'Chọn Ngày' || value === 'Chọn Suất') {
-                if (type === 'phim') {
-                    newValues.rap = 'Chọn Rạp';
-                    newValues.ngay = 'Chọn Ngày';
-                    newValues.suat = 'Chọn Suất';
+            } else if (value === 'Chọn movie' || value === 'Chọn Rạp' || value === 'Chọn Ngày' || value === 'Chọn Suất') {
+                if (type === 'movie') {
+                    newValues.theater = 'Chọn Rạp';
+                    newValues.day = 'Chọn Ngày';
+                    newValues.rate = 'Chọn Suất';
                     setCurrentStep(0);
-                } else if (type === 'rap') {
-                    newValues.ngay = 'Chọn Ngày';
-                    newValues.suat = 'Chọn Suất';
+                } else if (type === 'theater') {
+                    newValues.day = 'Chọn Ngày';
+                    newValues.rate = 'Chọn Suất';
                     setCurrentStep(1);
-                } else if (type === 'ngay') {
-                    newValues.suat = 'Chọn Suất';
+                } else if (type === 'day') {
+                    newValues.rate = 'Chọn Suất';
                     setCurrentStep(2);
                 }
             }
             return newValues;
         });
-        setOpenDropdown(null);
     };
 
     const toggleDropdown = (type) => {
         setOpenDropdown(prev => (prev === type ? null : type));
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (filterSectionRef.current && !filterSectionRef.current.contains(event.target)) {
+                setOpenDropdown(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="filter-section">
+        <div className="filter-section" ref={filterSectionRef}>
             <button
                 data-number="1"
-                onClick={() => toggleDropdown('phim')}
-                className={openDropdown === 'phim' ? 'active' : ''}
+                onClick={() => toggleDropdown('movie')}
+                className={openDropdown === 'movie' ? 'active' : ''}
             >
-                {selectedValues.phim}
-                {openDropdown === 'phim' && (
+                <span className="button-text">{selectedValues.movie}</span>
+                {openDropdown === 'movie' && (
                     <ul className="dropdown">
-                        <li onClick={() => handleSelect('phim', 'Thể loại phim')}>Thể loại phim</li>
-                        <li onClick={() => handleSelect('phim', 'Diễn viên')}>Diễn viên</li>
-                        <li onClick={() => handleSelect('phim', 'Đạo diễn')}>Đạo diễn</li>
-                        <li onClick={() => handleSelect('phim', 'Bình luận phim')}>Bình luận phim</li>
-                        <li onClick={() => handleSelect('phim', 'Blog Điện ảnh')}>Blog Điện ảnh</li>
+                        {dropdownData.movie.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.movie === item ? 'selected' : ''}
+                                onClick={() => handleSelect('movie', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>
             <button
                 data-number="2"
-                onClick={() => toggleDropdown('rap')}
-                className={openDropdown === 'rap' ? 'active' : (currentStep < 1 ? 'disabled' : '')}
+                onClick={() => toggleDropdown('theater')}
+                className={openDropdown === 'theater' ? 'active' : currentStep < 1 ? 'disabled' : ''}
                 disabled={currentStep < 1}
             >
-                {selectedValues.rap}
-                {openDropdown === 'rap' && (
+                <span className="button-text">{selectedValues.theater}</span>
+                {openDropdown === 'theater' && (
                     <ul className="dropdown">
-                        <li onClick={() => handleSelect('rap', 'Galaxy Nguyễn Du')}>Galaxy Nguyễn Du</li>
-                        <li onClick={() => handleSelect('rap', 'Galaxy Tân Bình')}>Galaxy Tân Bình</li>
-                        <li onClick={() => handleSelect('rap', 'Galaxy Kinh Dương Vương')}>Galaxy Kinh Dương Vương</li>
-                        <li onClick={() => handleSelect('rap', 'Galaxy Quang Trung')}>Galaxy Quang Trung</li>
-                        <li onClick={() => handleSelect('rap', 'Galaxy Trung Chánh')}>Galaxy Trung Chánh</li>
-                        <li onClick={() => handleSelect('rap', 'Galaxy Phạm Văn Chí')}>Galaxy Phạm Văn Chí</li>
-                        <li onClick={() => handleSelect('rap', 'Galaxy Huỳnh Tấn Phát')}>Galaxy Huỳnh Tấn Phát</li>
-                        <li onClick={() => handleSelect('rap', 'Galaxy Đà Nẵng')}>Galaxy Đà Nẵng</li>
+                        {dropdownData.theater.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.theater === item ? 'selected' : ''}
+                                onClick={() => handleSelect('theater', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>
             <button
                 data-number="3"
-                onClick={() => toggleDropdown('ngay')}
-                className={openDropdown === 'ngay' ? 'active' : (currentStep < 2 ? 'disabled' : '')}
+                onClick={() => toggleDropdown('day')}
+                className={openDropdown === 'day' ? 'active' : currentStep < 2 ? 'disabled' : ''}
                 disabled={currentStep < 2}
             >
-                {selectedValues.ngay}
-                {openDropdown === 'ngay' && (
+                <span className="button-text">{selectedValues.day}</span>
+                {openDropdown === 'day' && (
                     <ul className="dropdown">
-                        <li onClick={() => handleSelect('ngay', 'Thứ Hai')}>Thứ Hai</li>
-                        <li onClick={() => handleSelect('ngay', 'Thứ Ba')}>Thứ Ba</li>
-                        <li onClick={() => handleSelect('ngay', 'Thứ Tư')}>Thứ Tư</li>
-                        <li onClick={() => handleSelect('ngay', 'Thứ Năm')}>Thứ Năm</li>
-                        <li onClick={() => handleSelect('ngay', 'Thứ Sáu')}>Thứ Sáu</li>
-                        <li onClick={() => handleSelect('ngay', 'Thứ Bảy')}>Thứ Bảy</li>
-                        <li onClick={() => handleSelect('ngay', 'Chủ Nhật')}>Chủ Nhật</li>
+                        {dropdownData.day.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.day === item ? 'selected' : ''}
+                                onClick={() => handleSelect('day', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>
             <button
                 data-number="4"
-                onClick={() => toggleDropdown('suat')}
-                className={openDropdown === 'suat' ? 'active' : (currentStep < 3 ? 'disabled' : '')}
+                onClick={() => toggleDropdown('rate')}
+                className={openDropdown === 'rate' ? 'active' : currentStep < 3 ? 'disabled' : ''}
                 disabled={currentStep < 3}
             >
-                {selectedValues.suat}
-                {openDropdown === 'suat' && (
+                <span className="button-text">{selectedValues.rate}</span>
+                {openDropdown === 'rate' && (
                     <ul className="dropdown">
-                        <li onClick={() => handleSelect('suat', '8:00')}>8:00</li>
-                        <li onClick={() => handleSelect('suat', '10:00')}>10:00</li>
-                        <li onClick={() => handleSelect('suat', '12:00')}>12:00</li>
-                        <li onClick={() => handleSelect('suat', '14:00')}>14:00</li>
-                        <li onClick={() => handleSelect('suat', '16:00')}>16:00</li>
-                        <li onClick={() => handleSelect('suat', '18:00')}>18:00</li>
-                        <li onClick={() => handleSelect('suat', '20:00')}>20:00</li>
+                        {dropdownData.rate.map((item) => (
+                            <li
+                                key={item}
+                                className={selectedValues.rate === item ? 'selected' : ''}
+                                onClick={() => handleSelect('rate', item)}
+                            >
+                                {item}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </button>
             <button
                 className={currentStep < 4 ? 'buy-ticket disabled' : 'buy-ticket'}
                 disabled={currentStep < 4}
+                onClick={() => console.log('Buy ticket clicked')}
             >
-                Mua vé nhanh
+                <span className="button-text">Mua vé nhanh</span>
             </button>
         </div>
     );

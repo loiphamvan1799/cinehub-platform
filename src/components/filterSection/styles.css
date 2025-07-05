@@ -2,12 +2,12 @@
     background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
-    position: absolute;
+    position: relative;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 25;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     width: 1152px;
     height: 55px;
 }
@@ -23,6 +23,8 @@
     flex: 1;
     text-align: center;
     border: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .filter-section button::before {
@@ -72,16 +74,20 @@
 
 .dropdown {
     position: absolute;
-    bottom: 100%;
+    top: 100%;
     left: 0;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
+    border: 1px solid rgb(204, 204, 204);
+    min-width: 100%;
     list-style: none;
-    padding: 5px 0;
-    z-index: 1001;
+    padding: 0;
+    z-index: 999999;
     display: none;
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .filter-section button.active .dropdown {
@@ -89,19 +95,30 @@
 }
 
 .dropdown li {
-    padding: 5px 15px;
+    padding: 8px 15px;
     color: #333;
     cursor: pointer;
+    width: max-content;
+    min-width: 94%;
+    display: flex;
+    justify-content: left;
+    text-overflow: ellipsis;
 }
 
 .dropdown li:hover {
-    background-color: rgb(245 128 32);
+    background-color: rgb(139, 205, 237);
     color: #fff;
 }
 
+.filter-section button.disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
 
-
-
+.filter-section button.disabled:hover {
+    background-color: #f0f0f0;
+}
 
 .filter-section .buy-ticket.disabled {
     background-color: rgb(245 168 72);
@@ -111,4 +128,19 @@
 
 .filter-section .buy-ticket.disabled:hover {
     background-color: rgb(245 168 72);
+}
+
+.filter-section button .button-text {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 164px;
+    margin: 0 auto;
+}
+
+
+.dropdown li.selected {
+    background-color: rgb(0, 116, 217);
+    color: #fff;
 }

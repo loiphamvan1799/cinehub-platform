@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import "./styles.css"
+import React, { useState, useEffect } from "react";
+import "./styles.css";
 import FilterSection from "../filterSection/filterSection";
+
 const Banner = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
         {
-            src: 'https://cdn.galaxycine.vn/media/2025/6/11/cuon-bang-qu-am-2048_1749635966149.jpg',
+            src: 'https://cdn.galaxycine.vn/media/2025/6/11/cuon-bang-quy-am-2048_1749635966149.jpg',
             alt: 'Cuốn Băng Quỷ Ám',
         },
         {
@@ -16,6 +17,14 @@ const Banner = () => {
             src: 'https://cdn.galaxycine.vn/media/2025/6/14/trang-qunh-3_1749874488932.jpg',
             alt: 'Truyền Thuyết Kim Ngưu',
         },
+        {
+            src: 'https://cdn.galaxycine.vn/media/2025/6/24/ma-khong-dau-3_1750721756050.jpg',
+            alt: 'Ma Không Đầu',
+        },
+        {
+            src: 'https://cdn.galaxycine.vn/media/2025/4/28/f1-2048_1745833762317.jpg',
+            alt: 'F1',
+        }
     ];
 
     const nextSlide = () => {
@@ -30,6 +39,13 @@ const Banner = () => {
         setCurrentSlide(index);
     };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="banner">
             <div className="carousel__wrapper">
@@ -39,6 +55,7 @@ const Banner = () => {
                         src={slide.src}
                         alt={slide.alt}
                         className={index === currentSlide ? "active" : ""}
+                        draggable="false"
                     />
                 ))}
                 <button className="banner-prev" onClick={prevSlide}>
@@ -61,4 +78,5 @@ const Banner = () => {
         </div>
     );
 };
+
 export default Banner;

@@ -1,14 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Header from './components/layout/header/Header';
-import Footer from './components/layout/footer/Footer';
-import Banner from './components/banner/Banner'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Top from "./pages/top/Top";
+import "./App.css";
+
 function App() {
   return (
     <Router>
-      <Header />
-      <Banner />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Top />} />
+      </Routes>
     </Router>
   );
 }

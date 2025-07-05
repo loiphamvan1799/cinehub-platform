@@ -2,8 +2,6 @@
     position: relative;
     width: 100%;
     height: 400px;
-    overflow: hidden;
-    padding-top: 90px;
     padding-bottom: 50px;
 }
 
@@ -29,6 +27,11 @@
     height: 100%;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .banner-nav {
@@ -59,18 +62,34 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
     border: none;
-    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.banner-prev:hover,
+.banner-next:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .banner-prev {
-    left: 10px;
+    left: 20px;
 }
 
 .banner-next {
-    right: 10px;
+    right: 20px;
 }

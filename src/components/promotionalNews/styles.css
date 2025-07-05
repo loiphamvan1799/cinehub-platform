@@ -1,0 +1,101 @@
+.promo-container {
+    padding: 48px 16px;
+    margin: 0 auto;
+    max-width: 1235px;
+}
+
+.promo-vertical-bar {
+    width: 5px;
+    height: 24px;
+    background-color: #007bff;
+    display: inline-block;
+    border-radius: 2px;
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+
+.promo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.promo-header-inner {
+    display: flex;
+    align-items: center;
+}
+
+.promo-header-text {
+    display: inline;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-right: 40px;
+}
+
+.promo-carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    max-width: 1328px;
+    margin: 0 auto;
+    cursor: grab;
+    scroll-behavior: smooth;
+}
+
+.promo-carousel:active {
+    cursor: grabbing;
+}
+
+.promo-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.promo-track {
+    display: flex;
+    width: max-content;
+}
+
+.promo-card-link {
+    text-align: center;
+    text-decoration: none;
+    scroll-snap-align: start;
+    flex: 0 0 312px;
+}
+
+.promoCard {
+    width: 312px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.promo-poster-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 255px;
+    height: 148px;
+    margin: 0 auto;
+}
+
+.promo-poster {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.promo-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px 0 8px;
+    color: #000;
+    display: block;
+    transition: color 0.3s ease;
+}
