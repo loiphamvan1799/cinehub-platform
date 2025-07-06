@@ -2,37 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 import FilterSection from "../filterSection/filterSection";
 
-const Banner = () => {
+const Banner = ({ banners }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slides = [
-        {
-            src: 'https://cdn.galaxycine.vn/media/2025/6/11/cuon-bang-quy-am-2048_1749635966149.jpg',
-            alt: 'Cuốn Băng Quỷ Ám',
-        },
-        {
-            src: 'https://cdn.galaxycine.vn/media/2025/6/6/bi-kip-luyen-rong-2048_1749195168873.jpg',
-            alt: 'Bí Kíp Luyện Rồng',
-        },
-        {
-            src: 'https://cdn.galaxycine.vn/media/2025/6/14/trang-qunh-3_1749874488932.jpg',
-            alt: 'Truyền Thuyết Kim Ngưu',
-        },
-        {
-            src: 'https://cdn.galaxycine.vn/media/2025/6/24/ma-khong-dau-3_1750721756050.jpg',
-            alt: 'Ma Không Đầu',
-        },
-        {
-            src: 'https://cdn.galaxycine.vn/media/2025/4/28/f1-2048_1745833762317.jpg',
-            alt: 'F1',
-        }
-    ];
-
+    
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setCurrentSlide((prev) => (prev + 1) % banners.length);
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
     };
 
     const goToSlide = (index) => {
@@ -40,20 +18,22 @@ const Banner = () => {
     };
 
     useEffect(() => {
+        if (banners.length === 0) return;
         const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
+            setCurrentSlide((prev) => (prev + 1) % banners.length);
         }, 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [banners.length]);
+
 
     return (
         <div className="banner">
             <div className="carousel__wrapper">
-                {slides.map((slide, index) => (
+                {banners.length > 0 && banners.map((banner, index) => (
                     <img
-                        key={index}
-                        src={slide.src}
-                        alt={slide.alt}
+                        key={banner.id || index}
+                        src={banner.src}
+                        alt={banner.alt || ""}
                         className={index === currentSlide ? "active" : ""}
                         draggable="false"
                     />
@@ -65,12 +45,12 @@ const Banner = () => {
                     ❯
                 </button>
                 <div className="banner-nav">
-                    {slides.map((_, index) => (
-                        <span
-                            key={index}
-                            className={index === currentSlide ? 'active' : ''}
-                            onClick={() => goToSlide(index)}
-                        ></span>
+                    {banners.map((_, index) => (
+                                <span
+                                    key={index}
+                                    className={index === currentSlide ? 'active' : ''}
+                                    onClick={() => goToSlide(index)}
+                                ></span>
                     ))}
                 </div>
             </div>
