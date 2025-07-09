@@ -75,6 +75,9 @@ const Header = () => {
                 </ul>
             </nav>
             <div className="search-bar">
+                <span className="search-icon" onClick={toggleSearch}>
+                    🔍
+                </span>
                 {isSearchVisible && (
                     <input
                         type="text"
@@ -84,9 +87,6 @@ const Header = () => {
                         onKeyPress={handleSearch}
                     />
                 )}
-                <span className="search-icon" onClick={toggleSearch}>
-                    🔍
-                </span>
             </div>
             <div className="user-options">
                 <Link to="/login">Đăng Nhập</Link>

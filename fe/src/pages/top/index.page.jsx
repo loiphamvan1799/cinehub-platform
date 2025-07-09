@@ -1,35 +1,74 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/layout/header/Header";
 import Banner from "../../components/banner/Banner";
-import MovieShowing from "../../components/movie/movieShowing/movieShowing";
+import MovieShowing from "../../components/movie/movieShowing/movies";
 import MovieReview from "../../components/review/review";
 import PromotionalNews from "../../components/promotionalNews/promotionalNews";
 import AdvertiseSection from "../../components/Advertise/AdvertiseSection/AdvertiseSection";
 import Description from "../../components/Description/Description";
 import Footer from "../../components/layout/footer/Footer";
 import { ApiHandlerBanner } from "../../service/api/top/ApiHandlerBanner";
+import { slides } from "../../service/api/top/fixtureBannerData"
+import { ApiHandlerShowing, ApiHandlerComming } from "../../service/api/top/ApiFilms";
 
 const TopPage = () => {
-
-    //API Banner
+    // API Banner
     const [banners, setBanners] = useState([]);
+    // API Showing and Coming Films
+    const [showingMovies, setShowingMovies] = useState([]);
+    const [comingMovies, setComingMovies] = useState([]);
+
     useEffect(() => {
         const fetchBanners = async () => {
             try {
                 const response = await ApiHandlerBanner.fetchAllDataBanners();
-                setBanners(response?.data?.result || []);
+                setBanners(response?.data?.result || slides);
             } catch (error) {
                 console.error("Error fetching banners:", error);
+                setBanners(slides);
             }
         };
+
+        const fetchShowingFilms = async () => {
+            try {
+                const response = await ApiHandlerShowing.fetchShowingFilms();
+                const movies = response?.data?.result?.map(movie => ({
+                    imgSrc: movie.imagePortrait,
+                    title: movie.name,
+                    rating: movie.rate.toString(),
+                    age: movie.age,
+                })) || [];
+                setShowingMovies(movies);
+            } catch (error) {
+                console.error("Error fetching showing films:", error);
+            }
+        };
+
+        const fetchComingFilms = async () => {
+            try {
+                const response = await ApiHandlerComming.fetchComingFilms();
+                const movies = response?.data?.result?.map(movie => ({
+                    imgSrc: movie.imagePortrait,
+                    title: movie.name,
+                    rating: movie.rate.toString(),
+                    age: movie.age,
+                })) || [];
+                setComingMovies(movies);
+            } catch (error) {
+                console.error("Error fetching coming films:", error);
+            }
+        };
+
         fetchBanners();
+        fetchShowingFilms();
+        fetchComingFilms();
     }, []);
 
     return (
         <div className="top-page">
             <Header />
             <Banner banners={banners} />
-            <MovieShowing />
+            <MovieShowing showingMovies={showingMovies} comingMovies={comingMovies} />
             <MovieReview />
             <PromotionalNews />
             <AdvertiseSection />

@@ -1,134 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MovieCard from './movieCard/MovieCard';
 import ButtonWrapper from '../../layout/ButtonWrapper/ButtonWrapper';
 import LocationModal from '../LocationModal/LocationModal';
 import './styles.css';
-
-const movies = [
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/2/17/bi-kip-luyen-rong-500_1739776695143.jpg",
-        title: "Bí Kíp Luyện Rồng",
-        rating: "9.3",
-        age: "K",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/3/cuon-bang-qu-am-500_1748940630172.jpg",
-        title: "Cuốn Băng Quỷ Ám",
-        rating: "7.3",
-        age: "T13",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/5/27/hi5-500_1748319635634.jpg",
-        title: "Bộ Sưu Đăng Cá",
-        rating: "8.7",
-        age: "T16",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/10/miku-sneak-500_1749529927610.jpg",
-        title: "Colorful Stage! Một Miku Không Thể Hát",
-        rating: "9.5",
-        age: "K",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2024/2/27/anatomy-of-a-fall_1709024807223.png",
-        title: "Kỳ Án Trên Đồi Tuyet",
-        rating: "8.7",
-        age: "T16",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/11/horror-express_1749624500017.jpg",
-        title: "Bóng Ma Cõi Mạng",
-        rating: "7.6",
-        age: "T16",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/2/dan-da-dan-1_1748857295325.jpg",
-        title: "Dan Da Dan: Tà Nhãn",
-        rating: "9.1",
-        age: "T16",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/20/28-year-later-500_1750407074215.jpg",
-        title: "28 Năm Sau Tận Thế",
-        rating: "7.5",
-        age: "T18",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/20/mot-nua-hoan-hao-500_1750391504780.jpg",
-        title: "Một Nửa Hoàn Hảo",
-        rating: "7.2",
-        age: "T18",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/3/cuon-bang-qu-am-500_1748940630172.jpg",
-        title: "Cuốn Băng Quỷ Ám",
-        rating: "7.3",
-        age: "T13",
-    },
-];
-
-const comingSoonMovies = [
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/20/28-year-later-500_1750407074215.jpg",
-        title: "28 Năm Sau Tận Thế",
-        rating: "7.5",
-        age: "T18",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/19/ultraman-2_1750321630539.jpg",
-        title: "Phim Điện Ảnh Ultraman Arc: Ánh Sáng Và Ác Quỷ Đối Đầu",
-        rating: "7.4",
-        age: "K",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/10/halaba-500_1749539454772.jpg",
-        title: "Halabala: Rừng Ma Tế Xác",
-        rating: "8.1",
-        age: "T18",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/4/11/megan-500_1744365069100.jpg",
-        title: "M3GAN 2.0",
-        rating: "8.3",
-        age: "T16",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/10/halaba-500_1749539454772.jpg",
-        title: "Cuộc Sống Màu Hồng",
-        rating: "7.0",
-        age: "T13",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/19/dieu-uoc-cuoi-cung-500_1750327555016.jpg",
-        title: "Điều Ước Cuối Cùng",
-        rating: "7.4",
-        age: "T16",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn intl/media/2025/6/20/mot9631454780.jpg",
-        title: "Một Nửa Hoàn Hảo",
-        rating: "7.2",
-        age: "T18",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/3/cuon-bang-qu-am-500_1748940630172.jpg",
-        title: "Cuốn Băng Quỷ Ám",
-        rating: "7.3",
-        age: "T13",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/20/mot-nua-hoan-hao-500_1750391504780.jpg",
-        title: "Một Nửa Hoàn Hảo",
-        rating: "7.2",
-        age: "T18",
-    },
-    {
-        imgSrc: "https://cdn.galaxycine.vn/media/2025/6/3/cuon-bang-qu-am-500_1748940630172.jpg",
-        title: "Cuốn Băng Quỷ Ám",
-        rating: "7.3",
-        age: "T13",
-    },
-];
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const movieImax = [
     {
@@ -163,7 +38,7 @@ const movieImax = [
     },
 ];
 
-const MovieShowing = () => {
+const MovieShowing = ({ showingMovies, comingMovies }) => {
     const [activeTab, setActiveTab] = useState('nowShowing');
     const [displayCount, setDisplayCount] = useState(8);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -194,8 +69,8 @@ const MovieShowing = () => {
     };
 
     const currentMovies =
-        activeTab === 'nowShowing' ? movies :
-            activeTab === 'comingSoon' ? comingSoonMovies :
+        activeTab === 'nowShowing' ? showingMovies :
+            activeTab === 'comingSoon' ? comingMovies :
                 movieImax;
 
     const displayedMovies = currentMovies.slice(0, displayCount);
@@ -203,7 +78,7 @@ const MovieShowing = () => {
     return (
         <div>
             <div className="movieFilter">
-                <div className="filterNav">
+                <div className="filterNav ">
                     <h1 className="filterTitle">
                         <span className="vertical-bar"></span> PHIM
                     </h1>
@@ -238,9 +113,14 @@ const MovieShowing = () => {
             </div>
             <section className="moviesSection">
                 {displayedMovies.map((movie, index) => (
-                    <MovieCard key={index} {...movie} />
+                    <MovieCard key={movie.id || index} {...movie} />
                 ))}
             </section>
+            {displayedMovies.length === 0 && (
+                <div className="alert alert-danger" role="alert">
+                    Hiện tại Data máy chủ đang bị lỗi chúng tôi đang cố gắng sữa mong bạn chờ trong giây lát :))
+                </div>
+            )}
             <ButtonWrapper
                 movieCount={currentMovies.length}
                 displayCount={displayCount}

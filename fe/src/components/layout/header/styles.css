@@ -50,6 +50,12 @@ nav ul li a:hover {
     position: relative;
     width: 100px;
     height: 35px;
+    top: -9px;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
 }
 
 .search-bar input {
@@ -76,7 +82,7 @@ nav ul li a:hover {
 }
 
 .buy-tickets a img {
-    width: 100px;
+    width: 112px;
     height: 36px;
 }
 
