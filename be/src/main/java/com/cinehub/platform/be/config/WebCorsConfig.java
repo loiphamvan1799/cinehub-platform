@@ -13,8 +13,8 @@ public class WebCorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("api/v1/**")
-                        .allowedOrigins("*")
+                registry.addMapping("api/**")
+                        .allowedOrigins("http://localhost:3000")
                         .allowedMethods("*")
                         .allowedHeaders("*");
             }
