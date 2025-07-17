@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/layout/header/Header";
 import Banner from "../../components/banner/Banner";
-import MovieShowing from "../../components/movie/movieShowing/movies";
+import MovieShowing from "../../components/movie/movieShowing/movies.tsx";
 import MovieReview from "../../components/review/review";
 import PromotionalNews from "../../components/promotionalNews/promotionalNews";
 import AdvertiseSection from "../../components/Advertise/AdvertiseSection/AdvertiseSection";
 import Description from "../../components/Description/Description";
 import Footer from "../../components/layout/footer/Footer";
 import { ApiHandlerBanner } from "../../service/api/top/ApiHandlerBanner";
-import { slides } from "../../service/api/top/fixtureBannerData"
+import { dataFakebanners } from "../../service/api/top/fixtureBannerData"
 import { ApiHandlerShowing, ApiHandlerComming } from "../../service/api/top/ApiFilms";
-
 const TopPage = () => {
     // API Banner
     const [banners, setBanners] = useState([]);
@@ -22,10 +21,10 @@ const TopPage = () => {
         const fetchBanners = async () => {
             try {
                 const response = await ApiHandlerBanner.fetchAllDataBanners();
-                setBanners(response?.data?.result || slides);
+                setBanners(response?.data?.result || dataFakebanners);
             } catch (error) {
                 console.error("Error fetching banners:", error);
-                setBanners(slides);
+                setBanners(dataFakebanners);
             }
         };
 

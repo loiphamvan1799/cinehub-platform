@@ -1,4 +1,4 @@
-export const slides = [
+export const dataFakebanners = [
     {
         src: 'https://cdn.galaxycine.vn/media/2025/7/2/phim-hay-thang-07-2025-2_1751446160060.jpg',
         alt: 'Phim Hay Tháng 7.2025',

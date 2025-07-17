@@ -5,24 +5,27 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
-    width: 98%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {
+    display: flex;
+    align-items: center;
     position: relative;
-    left: 290px;
+    left: 113px;
 }
 
 .logo img {
     height: 65px;
-    position: relative;
-    right: 150px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 40px;
+    align-items: center;
+    margin: 0;
 }
 
 nav ul li {
@@ -33,7 +36,6 @@ nav ul li a {
     color: #333;
     text-decoration: none;
     font-size: 14px;
-    position: relative;
     display: flex;
     align-items: center;
 }
@@ -43,34 +45,53 @@ nav ul li a svg {
 }
 
 nav ul li a:hover {
-    color: rgb(245 128 32);
+    color: rgb(245, 128, 32);
 }
 
 .buy-tickets {
-    position: relative;
-    width: 100px;
-    height: 35px;
-    top: -9px;
+    display: flex;
+    align-items: center;
+}
+
+.buy-tickets a img {
+    width: 112px;
+    height: 36px;
 }
 
 .search-bar {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .search-bar input {
     padding: 5px;
+    border: 1px solid #cecece;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    z-index: 1001;
+}
+
+.search-bar input:focus {
     border: 1px solid #ddd;
     border-radius: 5px;
+    outline: none;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 150px;
 }
 
 .user-options a {
     color: #333;
     text-decoration: none;
-    margin-left: 20px;
     font-size: 14px;
-    position: relative;
-    right: 130px;
 }
 
 .user-options a:hover {
@@ -79,11 +100,6 @@ nav ul li a:hover {
 
 .search-icon {
     cursor: pointer;
-}
-
-.buy-tickets a img {
-    width: 112px;
-    height: 36px;
 }
 
 nav ul li:hover .dropdownn {
