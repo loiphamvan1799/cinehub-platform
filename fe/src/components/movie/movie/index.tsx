@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ButtonWrapper from '../../layout/ButtonWrapper/ButtonWrapper';
-import LocationModal from '../LocationModal/LocationModal';
+import ButtonWrapper from '../../layout/ButtonWrapper';
+import LocationModal from '../LocationModal';
 import './styles.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Movie } from '../../../types/Movie';
-import MovieCard from "../movieCard/index.tsx";
+import MovieCard from "../movieCard";
 
 interface MovieShowingProps {
     showingMovies: Movie[];
@@ -16,6 +16,39 @@ const MovieShowing = ({ showingMovies, comingMovies }: MovieShowingProps) => {
     const [activeTab, setActiveTab] = useState<'nowShowing' | 'comingSoon' | 'movieImax'>('nowShowing');
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [selectedLocation, setSelectedLocation] = useState<string>('Toàn Quốc');
+
+    const movieImax = [
+        {
+            imgSrc: "https://cdn.galaxycine.vn/media/2025/6/19/dieu-uoc-cuoi-cung-500_1750327555016.jpg",
+            title: "Điều Ước Cuối Cùng",
+            rating: "7.4",
+            age: "T16",
+        },
+        {
+            imgSrc: "https://cdn.galaxycine.vn/media/2025/6/20/mot-nua-hoan-hao-500_1750391504780.jpg",
+            title: "Một Nửa Hoàn Hảo",
+            rating: "7.2",
+            age: "T18",
+        },
+        {
+            imgSrc: "https://cdn.galaxycine.vn/media/2025/6/3/cuon-bang-qu-am-500_1748940630172.jpg",
+            title: "Cuốn Băng Quỷ Ám",
+            rating: "7.3",
+            age: "T13",
+        },
+        {
+            imgSrc: "https://cdn.galaxycine.vn/media/2025/6/19/ultraman-2_1750321630539.jpg",
+            title: "Phim Điện Ảnh Ultraman Arc: Ánh Sáng Và Ác Quỷ Đối Đầu",
+            rating: "7.4",
+            age: "K",
+        },
+        {
+            imgSrc: "https://cdn.galaxycine.vn/media/2025/6/11/horror-express_1749624500017.jpg",
+            title: "Bóng Ma Cõi Mạng",
+            rating: "7.6",
+            age: "T16",
+        },
+    ];
 
     const handleTabClick = (e: React.MouseEvent<HTMLAnchorElement>, tab: 'nowShowing' | 'comingSoon' | 'movieImax') => {
         e.preventDefault();
@@ -43,6 +76,8 @@ const MovieShowing = ({ showingMovies, comingMovies }: MovieShowingProps) => {
 
     const displayCount = currentMovies.length > MAX_MOVIE_SHOWMORE ? MAX_MOVIE_SHOWMORE : currentMovies.length;
     const displayedMovies = currentMovies.slice(0, displayCount);
+
+
 
     return (
         <div>

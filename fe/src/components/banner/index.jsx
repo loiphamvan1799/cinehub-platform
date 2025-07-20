@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./styles.css";
-import FilterSection from "../filterSection/filterSection";
+import FilterSection from "../FilterSection";
 
 const Banner = ({ banners }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    
+
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % banners.length);
     };
@@ -46,11 +46,11 @@ const Banner = ({ banners }) => {
                 </button>
                 <div className="banner-nav">
                     {banners.map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={index === currentSlide ? 'active' : ''}
-                                    onClick={() => goToSlide(index)}
-                                ></span>
+                        <span
+                            key={index}
+                            className={index === currentSlide ? 'active' : ''}
+                            onClick={() => goToSlide(index)}
+                        ></span>
                     ))}
                 </div>
             </div>

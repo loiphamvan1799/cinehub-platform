@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ReviewCard from './reviewCard/reviewCard';
-import ButtonWrapper from '../layout/ButtonWrapper/ButtonWrapper';
+import ReviewCard from './ReviewCard';
+import ButtonWrapper from '../layout/ButtonWrapper';
 import './styles.css';
 
 const reviewMovies = [

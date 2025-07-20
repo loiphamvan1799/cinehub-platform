@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Header from "../../components/layout/header/Header";
-import Banner from "../../components/banner/Banner";
-import MovieReview from "../../components/review/review";
-import PromotionalNews from "../../components/promotionalNews/promotionalNews";
-import AdvertiseSection from "../../components/Advertise/AdvertiseSection/AdvertiseSection";
-import Description from "../../components/Description/Description";
-import Footer from "../../components/layout/footer/Footer";
+import { useState, useEffect } from "react";
+import Header from "../../components/layout/Header";
+import MovieReview from "../../components/review";
+import PromotionalNews from "../../components/promotionalNews/PromotionalNews";
+import Description from "../../components/Description";
+import Footer from "../../components/layout/Footer";
 import { ApiHandlerBanner } from "../../service/api/top/ApiHandlerBanner";
 import { dataFakebanners } from "../../service/api/top/fixtureBannerData"
 import { ApiHandlerShowing, ApiHandlerComming } from "../../service/api/top/ApiFilms";
-import MovieShowing from "../../components/movie/movieShowing/movie.tsx";
+import MovieShowing from "../../components/movie/movie";
+import AdvertiseSection from "../../components/Advertise/AdvertiseSection";
+import Banner from "../../components/Banner";
 const TopPage = () => {
     // API Banner
     const [banners, setBanners] = useState([]);
