@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/layout/header/Header";
 import Banner from "../../components/banner/Banner";
-import MovieShowing from "../../components/movie/movieShowing/movies.tsx";
 import MovieReview from "../../components/review/review";
 import PromotionalNews from "../../components/promotionalNews/promotionalNews";
 import AdvertiseSection from "../../components/Advertise/AdvertiseSection/AdvertiseSection";
@@ -10,6 +9,7 @@ import Footer from "../../components/layout/footer/Footer";
 import { ApiHandlerBanner } from "../../service/api/top/ApiHandlerBanner";
 import { dataFakebanners } from "../../service/api/top/fixtureBannerData"
 import { ApiHandlerShowing, ApiHandlerComming } from "../../service/api/top/ApiFilms";
+import MovieShowing from "../../components/movie/movieShowing/movie.tsx";
 const TopPage = () => {
     // API Banner
     const [banners, setBanners] = useState([]);

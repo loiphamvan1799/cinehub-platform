@@ -8,6 +8,7 @@ type MovieCardProps = {
     rating: string;
     age: string;
 }
+
 const MovieCard = ({ imgSrc, title, rating, age }: MovieCardProps) => {
     return (
         <div className="movieCard">

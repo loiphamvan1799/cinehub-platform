@@ -4,7 +4,7 @@ import LocationModal from '../LocationModal/LocationModal';
 import './styles.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Movie } from '../../../types/Movie';
-import MovieCard from "./movieCard/MovieCard";
+import MovieCard from "../movieCard/index.tsx";
 
 interface MovieShowingProps {
     showingMovies: Movie[];
