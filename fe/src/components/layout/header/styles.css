@@ -45,7 +45,7 @@ nav ul li a svg {
 }
 
 nav ul li a:hover {
-    color: rgb(245, 128, 32);
+    color: rgb(249, 128, 32);
 }
 
 .buy-tickets {
@@ -112,7 +112,7 @@ nav ul li:hover .dropdownn {
 }
 
 .dropdownn li:hover {
-    background-color: rgb(244, 173, 115);
+    background-color: rgb(246, 193, 119);
     color: #fff;
 }
 
