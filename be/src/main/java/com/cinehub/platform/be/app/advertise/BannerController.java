@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/banners")
+@RequestMapping("/api/v1/banners")
 public class BannerController {
 
     private final BannerService bannerService;
