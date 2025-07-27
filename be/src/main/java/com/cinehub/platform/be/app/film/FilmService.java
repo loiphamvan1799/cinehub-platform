@@ -8,6 +8,7 @@ import com.cinehub.platform.be.domain.cinema.model.response.MapCinemaFilmFormat;
 import com.cinehub.platform.be.domain.film.model.db.Film;
 import com.cinehub.platform.be.domain.film.model.response.FilmResponse;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,17 +16,12 @@ import java.util.List;
 
 import java.util.stream.Collectors;
 
-@Data
 @Service
+@RequiredArgsConstructor
 public class FilmService {
 
     private final FilmRepository filmRepository;
     private final CinemaFilmRepository cinemaFilmRepository;
-
-    public FilmService(CinemaFilmRepository cinemaFilmRepository, FilmRepository filmRepository) {
-        this.cinemaFilmRepository = cinemaFilmRepository;
-        this.filmRepository = filmRepository;
-    }
 
     public List<FilmResponse> getShowingFilms() {
         return getFilmResponses(getFilmsByFormat(FilmCinemaFormat.SHOWING));

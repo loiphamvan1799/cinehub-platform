@@ -2,6 +2,7 @@ package com.cinehub.platform.be.app.advertise;
 
 import com.cinehub.platform.be.adapters.persistence.advertise.BannerRepository;
 import com.cinehub.platform.be.domain.advertise.model.db.Banner;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,13 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class BannerService {
 
     private final BannerRepository bannerRepository;
-
-    public BannerService(BannerRepository bannerRepository) {
-        this.bannerRepository = bannerRepository;
-    }
 
     public List<Banner> getAllBanners() {
         return bannerRepository.findAll();

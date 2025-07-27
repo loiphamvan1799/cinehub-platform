@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "film_comments")
+@Table(name = "film_blogs")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmComment {
+public class FilmBlog {
 
     @Id
     private UUID id;

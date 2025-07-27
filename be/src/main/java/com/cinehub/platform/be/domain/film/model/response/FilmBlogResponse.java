@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class FilmCommentResponse {
+public class FilmBlogResponse {
 
     private UUID id;
     private UUID idFilm;
