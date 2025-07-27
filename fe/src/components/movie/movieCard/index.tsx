@@ -1,12 +1,19 @@
 import React from "react";
 import './styles.css';
 
-const MovieCard = ({ imgSrc, title, rating, age }) => {
+type MovieCardProps = {
+    id?: string;
+    imgSrc: string;
+    title: string;
+    rating: string;
+    age: string;
+}
+
+const MovieCard = ({ imgSrc, title, rating, age }: MovieCardProps) => {
     return (
         <div className="movieCard">
             <div className="poster-wrapper">
                 <img src={imgSrc} alt={title} className="poster" draggable="false" />
-
                 <>
                     <div className="button-overlay">
                         <button className="card-button">
@@ -24,13 +31,12 @@ const MovieCard = ({ imgSrc, title, rating, age }) => {
                                 fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
-                                <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
+                                <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.2-4.7-24.3-.5z" />
                             </svg>
                             Trailer
                         </button>
                     </div>
                 </>
-
                 <>
                     <div className="movie-info-overlay">
                         <div className="rating-badge">
@@ -40,8 +46,6 @@ const MovieCard = ({ imgSrc, title, rating, age }) => {
                     </div>
                 </>
             </div>
-
-
             <div className="card-details">
                 <h3 className="movie-title">{title}</h3>
             </div>

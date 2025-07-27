@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface CinemaFilmRepository extends JpaRepository<CinemaFilm, Long> {
-    List<CinemaFilm> findByStartDateBeforeAndEndDateAfter(LocalDateTime now1, LocalDateTime now2);
+    List<CinemaFilm> findByStartDateBeforeAndEndDateAfter(LocalDateTime now1,
+                                                          LocalDateTime now2);
     List<CinemaFilm> findByStartDateAfter(LocalDateTime now);
 
     @Query("SELECT cf FROM CinemaFilm cf " +

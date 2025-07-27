@@ -1,7 +1,7 @@
 import React from 'react';
-import AdvertiseLeft from '../AdvertiseLeft/AdvertiseLeft';
-import AdvertiseRight from '../AdvertiseRight/AdvertiseRight';
 import './styles.css';
+import AdvertiseLeft from '../AdvertiseLeft';
+import AdvertiseRight from '../AdvertiseRight';
 
 const AdvertiseSection = () => {
     return (

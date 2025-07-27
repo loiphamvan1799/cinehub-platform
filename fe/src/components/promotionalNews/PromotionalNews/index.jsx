@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import PromoCard from './PromoCard/PromoCard';
+import PromoCard from '../PromoCard';
 import './styles.css';
 
 const PromotionalNews = () => {

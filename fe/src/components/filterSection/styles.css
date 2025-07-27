@@ -8,8 +8,8 @@
     transform: translateX(-50%);
     z-index: 99;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    width: 1152px;
-    height: 55px;
+    width: 1225px;
+    height: 65px;
 }
 
 .filter-section button {
@@ -25,6 +25,7 @@
     border: none;
     white-space: nowrap;
     text-overflow: ellipsis;
+    min-width: 0;
 }
 
 .filter-section button::before {
@@ -49,7 +50,7 @@
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
     position: absolute;
     right: 8px;
-    top: 50%;
+    top: 44%;
     transform: translateY(-50%);
     color: #333;
     width: 10px;
@@ -75,12 +76,14 @@
 .dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -1px;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid rgb(204, 204, 204);
-    min-width: 100%;
+    width: max-content;
+    min-width: 230px;
+    max-width: 1000px;
     list-style: none;
     padding: 0;
     z-index: 999999;
@@ -99,7 +102,7 @@
     color: #333;
     cursor: pointer;
     width: max-content;
-    min-width: 94%;
+    min-width: 100%;
     display: flex;
     justify-content: left;
     text-overflow: ellipsis;
@@ -138,7 +141,6 @@
     max-width: 164px;
     margin: 0 auto;
 }
-
 
 .dropdown li.selected {
     background-color: rgb(0, 116, 217);

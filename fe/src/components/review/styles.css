@@ -28,17 +28,16 @@
 .vertical-bar {
     width: 5px;
     height: 24px;
-    background-color: #007bff;
+    background-color: #1B61A7;
     margin-right: 10px;
     display: inline-block;
     border-radius: 2px;
 }
 
-.reviewNav a,
-.filterNav a {
+.reviewNav a {
     color: #666;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     position: relative;
     padding-bottom: 4px;
     padding-right: 8px;
@@ -48,15 +47,13 @@
     opacity: 0.7;
 }
 
-.reviewNav a.active,
-.filterNav a.active {
-    color: #007bff;
+.reviewNav a.active {
+    color: #1B61A7;
     font-weight: bold;
     opacity: 1;
 }
 
-.reviewNav a.active::after,
-.filterNav a.active::after {
+.reviewNav a.active::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -64,24 +61,23 @@
     transform: translateX(-50%);
     height: 2px;
     width: 50%;
-    background-color: #007bff;
+    background-color: #1B61A7;
     border-radius: 1px;
 }
 
-.reviewNav a:hover,
-.filterNav a:hover {
-    color: #5dade2;
+.reviewNav a:hover {
+    color: #1B61A7;
     opacity: 0.9;
 }
 
 .green-text {
-    color: #007bff;
+    color: #1B61A7;
     opacity: 1;
 }
 
 .with-icon svg {
     vertical-align: middle;
-    color: #007bff;
+    color: #1B61A7;
     width: 18px;
     height: 18px;
     flex-shrink: 0;
@@ -146,7 +142,7 @@
 }
 
 .reviewArticle:last-child .review-title:hover {
-    color: rgb(11 88 213 / 93%);
+    color: #1B61A7;
 }
 
 .reviewArticle:last-child .review-action {
