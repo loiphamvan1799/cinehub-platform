@@ -1,15 +1,22 @@
+import React, { useState } from 'react';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone';
-import { useState } from 'react';
 import './styles.css';
+import Signup from '../Singup';
 
-const Login = ({ onClose }) => {
+const Login = ({ onClose, onSwitchToSignup }) => {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClose = () => {
         if (onClose) {
             onClose();
+        }
+    };
+
+    const handleSwitchToSignup = () => {
+        if (onSwitchToSignup) {
+            onSwitchToSignup();
         }
     };
 
@@ -63,7 +70,12 @@ const Login = ({ onClose }) => {
                 </div>
                 <div className="login__signup-section">
                     <span className="login__signup-text">Bạn chưa có tài khoản?</span>
-                    <button type="button" className="login__signup-button">
+                    <button
+                        type="button"
+                        className="login__signup-button"
+                        onClick={handleSwitchToSignup}
+                    >
+                        <Signup />
                         <span>Đăng Kí</span>
                     </button>
                 </div>
@@ -71,4 +83,5 @@ const Login = ({ onClose }) => {
         </div>
     );
 };
+
 export default Login;

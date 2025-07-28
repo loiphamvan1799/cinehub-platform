@@ -10,18 +10,21 @@ import { ApiHandlerShowing, ApiHandlerComming } from "../../service/api/top/ApiF
 import MovieShowing from "../../components/movie/movie";
 import AdvertiseSection from "../../components/Advertise/AdvertiseSection";
 import Banner from "../../components/Banner";
+import { ApiHandlerFilmComment } from "../../service/api/top/APiFilmComment";
 const TopPage = () => {
     // API Banner
     const [banners, setBanners] = useState([]);
     // API Showing and Coming Films
     const [showingMovies, setShowingMovies] = useState([]);
     const [comingMovies, setComingMovies] = useState([]);
-
+    // API Film comment 
+    const [filmComments, setFilmComments] = useState([]);
     useEffect(() => {
         const fetchBanners = async () => {
             try {
                 const response = await ApiHandlerBanner.fetchAllDataBanners();
-                setBanners(response?.data?.result || dataFakebanners);
+                const result = response?.data?.result;
+                setBanners(Array.isArray(result) && result.length > 0 ? result : dataFakebanners);
             } catch (error) {
                 console.error("Error fetching banners:", error);
                 setBanners(dataFakebanners);
@@ -58,6 +61,21 @@ const TopPage = () => {
             }
         };
 
+        const fetchFilmComment = async () => {
+            try {
+                const response = await ApiHandlerFilmComment.fetchFilmComment();
+                const Comments = response?.data?.result?.map(comment => ({
+                    imgSrc: comment.imagePortrait,
+                    title: comment.name,
+                    view: comment.views,
+                })) || [];
+                setFilmComments(Comments);
+            } catch (error) {
+                console.error("Error fetching comment films:", error);
+            }
+        };
+
+        fetchFilmComment();
         fetchBanners();
         fetchShowingFilms();
         fetchComingFilms();
@@ -68,7 +86,7 @@ const TopPage = () => {
             <Header />
             <Banner banners={banners} />
             <MovieShowing showingMovies={showingMovies} comingMovies={comingMovies} />
-            <MovieReview />
+            <MovieReview filmComments={filmComments} />
             <PromotionalNews />
             <AdvertiseSection />
             <Description />

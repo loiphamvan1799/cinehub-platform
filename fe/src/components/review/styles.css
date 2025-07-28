@@ -149,3 +149,16 @@
     position: relative;
     top: 15px;
 }
+
+.alert-danger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 10px 20px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

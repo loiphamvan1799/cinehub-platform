@@ -2,29 +2,7 @@ import React, { useState } from "react";
 import ReviewCard from './ReviewCard';
 import ButtonWrapper from '../layout/ButtonWrapper';
 import './styles.css';
-
-const reviewMovies = [
-    {
-        imgSrc: "https://www.galaxycine.vn/media/2025/6/26/rv-elio-750_1750911595674.jpg",
-        title: "[Review] Elio: Hành Trình Khám Phá Bản Thân Tràn Ngập Sắc Màu",
-        view: 17,
-    },
-    {
-        imgSrc: "https://www.galaxycine.vn/media/2025/6/20/28yl-rv-750_1750402038454.jpg",
-        title: "[Review] 28 Years Later: Thế Giới Hậu Tận Thế Tàn Khốc",
-        view: 18,
-    },
-    {
-        imgSrc: "https://www.galaxycine.vn/media/2025/6/12/hi-five-review-750_1749719835855.jpg",
-        title: "[Review] Hi Five: Hài Hước, Vô Tri Nhưng Cũng Rất Sâu Sắc",
-        view: 11,
-    },
-    {
-        imgSrc: "https://www.galaxycine.vn/media/2025/6/1/doraemon-the-movie-nobitas-art-world-tales-doraemon-sang-tao-va-ruc-ro-nhat-3_1748793468240.jpg",
-        title: "[Review]Doraemon Sáng Tạo Và Rực Rỡ Nhất",
-        view: 12,
-    },
-];
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const reviewComingSoonMovies = [
     {
@@ -49,7 +27,7 @@ const reviewComingSoonMovies = [
     },
 ];
 
-const MovieReview = () => {
+const MovieReview = ({ filmComments }) => {
     const [activeTab, setActiveTab] = useState('nowShowing');
 
     const handleTabClick = (e, tab) => {
@@ -57,7 +35,7 @@ const MovieReview = () => {
         setActiveTab(tab);
     };
 
-    const currentReviewMovies = activeTab === 'nowShowing' ? reviewMovies : reviewComingSoonMovies;
+    const currentReviewMovies = activeTab === 'nowShowing' ? filmComments : reviewComingSoonMovies;
 
     return (
         <div>
@@ -83,18 +61,26 @@ const MovieReview = () => {
                 </div>
             </div>
             <div className="reviewWrapper">
-                <article className="reviewArticle">
-                    {currentReviewMovies.slice(0, 1).map((movie, index) => (
-                        <ReviewCard key={index} {...movie} className={`review-card-${index + 1}`} />
-                    ))}
-                </article>
-                <article className="reviewArticle">
-                    {currentReviewMovies.slice(1, 4).map((movie, index) => (
-                        <ReviewCard key={index + 1} {...movie} className={`review-card-${index + 2}`} />
-                    ))}
-                </article>
+                {currentReviewMovies.length === 0 ? (
+                    <div className="alert alert-danger" role="alert">
+                        Hiện tại Data máy chủ đang bị lỗi chúng tôi đang cố gắng sửa mong bạn chờ trong giây lát :))
+                    </div>
+                ) : (
+                    <>
+                        <article className="reviewArticle">
+                            {currentReviewMovies.slice(0, 1).map((movie, index) => (
+                                <ReviewCard key={index} {...movie} className={`review-card-${index + 1}`} />
+                            ))}
+                        </article>
+                        <article className="reviewArticle">
+                            {currentReviewMovies.slice(1, 4).map((movie, index) => (
+                                <ReviewCard key={index + 1} {...movie} className={`review-card-${index + 2}`} />
+                            ))}
+                        </article>
+                    </>
+                )}
             </div>
-            <ButtonWrapper />
+            {currentReviewMovies.length > 0 && <ButtonWrapper />}
         </div>
     );
 };

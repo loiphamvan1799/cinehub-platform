@@ -15,8 +15,8 @@ const PromoCard = ({ imgSrc, title, href }) => {
                         src={imgSrc}
                         alt={title}
                         className="promo-poster"
-                        width="255"
-                        height="148"
+                        width="295"
+                        height="440"
                         loading="lazy"
                         draggable="false"
                     />

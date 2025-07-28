@@ -25,11 +25,10 @@ const Banner = ({ banners }) => {
         return () => clearInterval(interval);
     }, [banners.length]);
 
-
     return (
         <div className="banner">
             <div className="carousel__wrapper">
-                {banners.length > 0 && banners.map((banner, index) => (
+                {banners.map((banner, index) => (
                     <img
                         key={banner.id || index}
                         src={banner.src}
