@@ -23,7 +23,8 @@ const TopPage = () => {
         const fetchBanners = async () => {
             try {
                 const response = await ApiHandlerBanner.fetchAllDataBanners();
-                setBanners(response?.data?.result || dataFakebanners);
+                const result = response?.data?.result;
+                setBanners(Array.isArray(result) && result.length > 0 ? result : dataFakebanners);
             } catch (error) {
                 console.error("Error fetching banners:", error);
                 setBanners(dataFakebanners);
@@ -74,7 +75,7 @@ const TopPage = () => {
             }
         };
 
-
+        fetchFilmComment();
         fetchBanners();
         fetchShowingFilms();
         fetchComingFilms();
