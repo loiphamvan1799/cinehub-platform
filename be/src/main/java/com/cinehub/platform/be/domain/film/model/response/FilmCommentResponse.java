@@ -4,14 +4,13 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Data
 @Builder
 public class FilmCommentResponse {
 
-    private UUID id;
-    private UUID idFilm;
+    private String id;
+    private String idFilm;
     private String name;
     private String slug;
     private Integer views;

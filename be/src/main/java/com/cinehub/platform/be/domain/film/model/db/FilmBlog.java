@@ -19,8 +19,8 @@ import java.util.UUID;
 public class FilmBlog {
 
     @Id
-    private UUID id;
-    private UUID idFilm;
+    private String id;
+    private String idFilm;
     private String name;
     private String slug;
     private Integer views;
