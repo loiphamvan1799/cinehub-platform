@@ -1,0 +1,259 @@
+input {
+    font-size: 16px !important;
+}
+
+.singup__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.singup__container {
+    width: 400px;
+    height: 100vh;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.singup__container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.singup__container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.singup__container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.singup__container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.singup__close-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.singup__close-button svg {
+    font-size: 24px;
+    color: #666;
+}
+
+.singup__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.singup__icon-image {
+    width: 190px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.singup__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.singup__form-container {
+    width: 100%;
+    padding: 0 16px;
+}
+
+.singup__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.singup__label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.singup__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.singup__input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.singup__input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.singup__gender-wrapper {
+    display: flex;
+    gap: 24px;
+    margin: 12px 0;
+}
+
+.singup__gender-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.singup__radio {
+    width: 16px;
+    height: 16px;
+}
+
+.singup__radio-label {
+    font-size: 14px;
+    color: #333;
+}
+
+.singup__date-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.singup__date-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.singup__date-input {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 40px 12px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    font-size: 16px !important;
+}
+
+.singup__date-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.singup__calendar-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    pointer-events: none;
+}
+
+.singup__clear-date {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.singup__clear-date svg {
+    font-size: 19px;
+    color: #666;
+}
+
+.singup__toggle-password {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: #666;
+}
+
+.singup__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.singup__checkbox-input {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+}
+
+.singup__checkbox-text {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.singup__link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.singup__link:hover {
+    text-decoration: underline;
+}
+
+.singup__submit-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.singup__submit-button:hover {
+    background: #0056b3;
+}
+
+#recaptcha-container {
+    margin-top: 16px;
+}
