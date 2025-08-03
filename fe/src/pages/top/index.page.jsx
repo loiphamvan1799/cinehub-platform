@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/layout/Header";
-import MovieReview from "../../components/review";
-import PromotionalNews from "../../components/promotionalNews/PromotionalNews";
+import Header from "../../components/Layout/Header";
+import MovieReview from "../../components/Review";
+import PromotionalNews from "../../components/PromotionalNews/PromotionalNews";
 import Description from "../../components/Description";
-import Footer from "../../components/layout/Footer";
+import Footer from "../../components/Layout/Footer";
 import { ApiHandlerBanner } from "../../service/api/top/ApiHandlerBanner";
 import { dataFakebanners } from "../../service/api/top/fixtureBannerData"
 import { ApiHandlerShowing, ApiHandlerComming } from "../../service/api/top/ApiFilms";
-import MovieShowing from "../../components/movie/movie";
+import MovieShowing from "../../components/Movie/Movie";
 import AdvertiseSection from "../../components/Advertise/AdvertiseSection";
 import Banner from "../../components/Banner";
 import { ApiHandlerFilmComment } from "../../service/api/top/APiFilmComment";
+import { MovieDetail } from "../../components/MovieDetailPage/MovieDetail";
 const TopPage = () => {
     // API Banner
     const [banners, setBanners] = useState([]);
@@ -90,6 +91,7 @@ const TopPage = () => {
             <PromotionalNews />
             <AdvertiseSection />
             <Description />
+            {/* <MovieDetail /> */}
             <Footer />
         </div>
     );
