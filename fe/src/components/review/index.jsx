@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReviewCard from './ReviewCard';
-import ButtonWrapper from '../layout/ButtonWrapper';
+import ButtonWrapper from '../Layout/ButtonWrapper';
 import './styles.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
