@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.seeMore {
+    display: flex;
+    justify-content: center;
+    padding: 5px 15px;
+    border: 0.5px solid rgb(227, 150, 94);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.seeMore a {
+    text-decoration: none;
+    color: rgb(227, 150, 94);
+    font-size: 16px;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.seeMore:hover {
+    background-color: rgb(245 128 32);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.seeMore:hover a {
+    color: white;
+}

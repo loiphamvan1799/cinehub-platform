@@ -1,0 +1,56 @@
+.advertise-right {
+    display: flex;
+    align-items: center;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+}
+
+.advertise-right__title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.advertise-right__description {
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+}
+
+.advertise-right__qr {
+    display: flex;
+    align-items: flex-end;
+}
+
+.advertise-right__qr-img {
+    width: 150px;
+    height: 150px;
+}
+
+.advertise-right__or {
+    margin: 0 1rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+
+.advertise-right__app-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.advertise-right__app-item {
+    display: inline-block;
+}
+
+.advertise-right__app-item+.advertise-right__app-item {
+    margin-left: 0.25rem;
+}
+
+.advertise-right__app-img {
+    width: auto;
+    height: auto;
+    max-width: 150px;
+}
