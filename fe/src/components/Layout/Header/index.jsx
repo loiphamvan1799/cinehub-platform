@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../Login';
 import './styles.css';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -44,6 +45,37 @@ const Header = () => {
         };
     }, [isLoginVisible]);
 
+    const PRODUCT = [
+        { label: "Anh Trai Vượt Ngàn Trông Gai" },
+        { label: "Galaxy Merch" },
+    ];
+
+    const CINEMA_CORNER = [
+        { label: "Thể Loại Phim" },
+        { label: "Diễn Viên" },
+        { label: "Đạo Diễn" },
+        { label: "Bình Luận Phim" },
+        { label: "Blog Điện Ảnh" },
+    ];
+
+    const EVENTS = [
+        { label: "Ưu Đãi" },
+        { label: "Phim Hay Tháng" },
+        { label: "Anh Trai Vượt Ngàn Trông Gai" },
+        { label: "Galaxy Merch" },
+    ];
+
+    const THEATERS_PRICES = [
+        { label: "Galaxy Nguyễn Du" },
+        { label: "Galaxy Tân Bình" },
+        { label: "Galaxy Kinh Dương Vương" },
+        { label: "Galaxy Quang Trung" },
+        { label: "Galaxy Trung Chánh" },
+        { label: "Galaxy Phạm Văn Chí" },
+        { label: "Galaxy Huỳnh Tấn Phát" },
+        { label: "Galaxy Đà Nẵng" },
+    ];
+
     return (
         <>
             <header className="header">
@@ -59,45 +91,38 @@ const Header = () => {
                     <ul>
                         <li className='buy-tickets'><Link to="/buy-tickets"><img src="https://www.galaxycine.vn/_next/static/media/btn-ticket.42d72c96.webp" alt="" /></Link></li>
                         <li>
-                            <Link to="/movies">Phim <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" /></svg></Link>
+                            <Link to="/movies">Phim <KeyboardArrowDownIcon /></Link>
                         </li>
                         <li>
-                            <Link to="/products">Sản Phẩm <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" /></svg></Link>
+                            <Link to="/products">Sản Phẩm <KeyboardArrowDownIcon /></Link>
                             <ul className="dropdownn">
-                                <li>Anh Trai Vượt Ngàn Trông Gai</li>
-                                <li>Galaxy Merch</li>
+                                {PRODUCT.map((item, index) => (
+                                    <li key={index}>{item.label}</li>
+                                ))}
                             </ul>
                         </li>
                         <li>
-                            <Link to="/cinema-corner">Góc Điện Ảnh <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" /></svg></Link>
-                            <ul className="dropdownn" >
-                                <li>Thể Loại Phim</li>
-                                <li>Diễn Viên</li>
-                                <li>Đạo Diễn</li>
-                                <li>Bình Luận Phim</li>
-                                <li>Blog Điện Ảnh</li>
+                            <Link to="/cinema-corner">Góc Điện Ảnh <KeyboardArrowDownIcon /></Link>
+                            <ul className="dropdownn">
+                                {CINEMA_CORNER.map((item, index) => (
+                                    <li key={index}>{item.label}</li>
+                                ))}
                             </ul>
                         </li>
                         <li>
-                            <Link to="/events">Sự Kiện <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" /></svg></Link>
+                            <Link to="/events">Sự Kiện <KeyboardArrowDownIcon /></Link>
                             <ul className="dropdownn">
-                                <li>Ưu Đãi</li>
-                                <li>Phim Hay Tháng</li>
-                                <li>Anh Trai Vượt Ngàn Trông Gai</li>
-                                <li>Galaxy Merch</li>
+                                {EVENTS.map((item, index) => (
+                                    <li key={index}>{item.label}</li>
+                                ))}
                             </ul>
                         </li>
                         <li>
-                            <Link to="/theaters-prices">Rạp/Giá Vé <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="10" height="10"><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" /></svg></Link>
+                            <Link to="/theaters-prices">Rạp/Giá Vé <KeyboardArrowDownIcon /></Link>
                             <ul className="dropdownn">
-                                <li>Galaxy Nguyễn Du</li>
-                                <li>Galaxy Tân Bình</li>
-                                <li>Galaxy Kinh Dương Vương</li>
-                                <li>Galaxy Quang Trung</li>
-                                <li>Galaxy Trung Chánh</li>
-                                <li>Galaxy Phạm Văn Chí</li>
-                                <li>Galaxy Huỳnh Tấn Phát</li>
-                                <li>Galaxy Đà Nẵng</li>
+                                {THEATERS_PRICES.map((item, index) => (
+                                    <li key={index}>{item.label}</li>
+                                ))}
                             </ul>
                         </li>
                     </ul>
