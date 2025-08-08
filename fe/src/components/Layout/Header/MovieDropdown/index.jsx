@@ -37,7 +37,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
             <div className="dropdown-content">
                 <div className="movie-section">
                     <div>
-                        <Link to="/phim-dang-chieu/" className="section-title">
+                        <Link className="section-title">
                             <span className="section-indicator"></span>
                             Phim Đang Chiếu
                         </Link>
@@ -91,7 +91,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                 </div>
                 <div className="movie-section">
                     <div>
-                        <Link to="/phim-sap-chieu/" className="section-title">
+                        <Link className="section-title">
                             <span className="section-indicator"></span>
                             Phim sắp chiếu
                         </Link>
@@ -139,7 +139,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                 </div>
                 <div className="movie-section">
                     <div>
-                        <Link to="/phim-imax/" className="section-title">
+                        <Link className="section-title">
                             <span className="section-indicator"></span>
                             Phim IMAX
                         </Link>
