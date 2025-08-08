@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import ButtonWrapper from '../../Layout/ButtonWrapper';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
+import StarIcon from '@mui/icons-material/Star';
 
 const MovieDetailShowing = () => {
   const movies = [
@@ -45,8 +46,6 @@ const MovieDetailShowing = () => {
                       <img
                         alt={movie.title}
                         loading="lazy"
-                        width="400"
-                        height="250"
                         className="showing-image"
                         src={movie.image}
                       />
@@ -62,11 +61,9 @@ const MovieDetailShowing = () => {
                         </a>
                       </div>
                     </div>
-                    <div className="showing-rating">
-                      <p>
-                        {/* <StarIcon className="star-icon" /> */}
-                        <span className="rating-text">{movie.rating}</span>
-                      </p>
+                    <div className="showing-rating rating-frame">
+                      <StarIcon className="star_icon" />
+                      <span className="rating-text">{movie.rating}</span>
                     </div>
                     <div className="showing-age">
                       <span>{movie.ageRating}</span>

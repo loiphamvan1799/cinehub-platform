@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Login from '../Login';
 import './styles.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import MoviesDropdown from './MovieDropdown';
 
-const Header = () => {
+const Header = ({ showingMovies, comingMovies }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isSearchVisible, setIsSearchVisible] = useState(false);
     const [isLoginVisible, setIsLoginVisible] = useState(false);
@@ -89,9 +90,22 @@ const Header = () => {
                 </div>
                 <nav>
                     <ul>
-                        <li className='buy-tickets'><Link to="/buy-tickets"><img src="https://www.galaxycine.vn/_next/static/media/btn-ticket.42d72c96.webp" alt="" /></Link></li>
-                        <li>
-                            <Link to="/movies">Phim <KeyboardArrowDownIcon /></Link>
+                        <li className='buy-tickets'>
+                            <Link to="/buy-tickets">
+                                <img src="https://www.galaxycine.vn/_next/static/media/btn-ticket.42d72c96.webp" alt="" />
+                            </Link>
+                        </li>
+                        <li className="relative group">
+                            <Link to="/movies" className="py-7 flex text-sm justify-between items-center md:pr-0 pr-5 group hover:text-orange-500 transition-all duration-300 ease-in-out not-italic">
+                                Phim
+                                <span className="text-xs md:ml-2 md:block hidden group-hover:text-orange-500 transition-all duration-300 ease-in-out text-[#777777]">
+                                    <KeyboardArrowDownIcon />
+                                </span>
+                            </Link>
+                            <MoviesDropdown
+                                showingMovies={showingMovies}
+                                comingMovies={comingMovies}
+                            />
                         </li>
                         <li>
                             <Link to="/products">Sản Phẩm <KeyboardArrowDownIcon /></Link>
@@ -129,7 +143,7 @@ const Header = () => {
                 </nav>
                 <div className="search-bar">
                     <span className="search-icon" onClick={toggleSearch}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                         </svg>
                     </span>

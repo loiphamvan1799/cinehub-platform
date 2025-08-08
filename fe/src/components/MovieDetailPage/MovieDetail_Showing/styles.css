@@ -1,11 +1,9 @@
 .showing-container {
-    display: none;
-}
-
-.showing-container {
     display: block;
     width: 100%;
     overflow: hidden;
+    padding-left: 45px;
+
 }
 
 .showing-header .title-border {
@@ -75,13 +73,8 @@
     display: none;
 }
 
-@media (min-width: 768px) {
-    .showing-overlay {
-        display: block;
-    }
-}
-
-.showing-overlay:hover {
+.showing-card-inner:hover .showing-overlay {
+    display: block;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
 }
@@ -117,8 +110,6 @@
 .showing-buy-btn svg {
     padding-left: 1px;
 }
-
-
 
 .showing-rating {
     position: absolute;
@@ -186,4 +177,8 @@
 
 .showing-more a svg {
     margin-left: 0.5rem;
+}
+
+.star_icon {
+    color: #facc15;
 }

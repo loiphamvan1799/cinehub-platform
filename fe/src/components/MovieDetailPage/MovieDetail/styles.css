@@ -3,7 +3,7 @@
     --text-color: #333;
     --background-color: #fff;
     --font-size-base: 14px;
-    --main-color: #f58020
+    --main-color: #f58020;
 }
 
 .movie-poster__container {
@@ -20,14 +20,6 @@
     inset: 0;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 10;
-}
-
-.movie-poster__image {
-    width: 860px;
-    height: auto;
-    object-fit: cover;
-    margin: 0 auto;
-    transition: all 0.5s ease-in-out;
 }
 
 .movie-poster__play-button {
@@ -48,17 +40,51 @@
     transition: all 0.5s ease-in-out;
 }
 
+.movie-poster__image-wrapper {
+    position: relative;
+    width: 860px;
+    height: 500px;
+}
+
+.movie-poster__image {
+    width: 860px;
+    height: 500px;
+    object-fit: cover;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    z-index: 10;
+}
+
+.movie-poster__image-wrapper::before,
+.movie-poster__image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.movie-poster__image-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.movie-poster__image-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
 .movie-poster__main {
-    max-width: 1024px;
+    max-width: 960px;
     margin: 20px auto;
     display: flex;
     gap: 20px;
-    background-color: var(--background-color);
     padding: 16px;
     position: relative;
-    left: 45px;
     height: 392px;
-    bottom: 505px;
 }
 
 .movie-poster__side-poster {
@@ -75,14 +101,13 @@
     bottom: 92px;
     z-index: 99;
     border: 2px solid #ffffff;
-    box-shadow: 0 6px 44px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 44px rgba(0, 0, 0, 0.4);
 }
 
 .movie-poster__info-section {
     flex: 2;
     padding: 16px;
     position: relative;
-    bottom: 42px;
 }
 
 .movie-poster__title {
@@ -176,14 +201,12 @@
 }
 
 .movie__content {
-    margin: 20px auto;
     padding: 16px;
     background-color: var(--background-color);
     color: #000;
-    width: 1011px;
+    width: 930px;
     position: relative;
     left: 40px;
-    bottom: 500px;
 }
 
 .content-border {
@@ -222,116 +245,11 @@
 }
 
 .movie__showtime {
-    margin: 20px auto;
     padding: 16px;
     background-color: var(--background-color);
     width: 1011px;
     position: relative;
     left: 40px;
-    bottom: 510px;
-}
-
-.movie__showtime-header {
-    margin-bottom: 16px;
-}
-
-.movie__filter {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.filter__date {
-    display: flex;
-    align-items: center;
-    flex: 1;
-}
-
-.date-prev,
-.date-next {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-color);
-}
-
-.date-track {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 12px;
-    flex: 1;
-}
-
-.date-slide {
-    display: flex;
-    align-items: center;
-}
-
-.date-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100px;
-    height: 75px;
-    padding: 10px;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: var(--font-size-base);
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.date-item span {
-    color: #000;
-}
-
-.date-item.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.date-item.active span {
-    color: #fff;
-}
-
-.filter__location {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.location-item {
-    flex: 1;
-    min-width: 175px;
-}
-
-.location-select {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    font-size: var(--font-size-base);
-    color: #111;
-    cursor: pointer;
-    width: 175px;
-    height: 37px;
-}
-
-.location-dropdown svg {
-    width: 20px;
-    height: 20px;
-}
-
-.line {
-    height: 1px;
-    background-color: #ccc;
-    margin: 16px 0;
-}
-
-.showtime__list {
-    margin-top: 16px;
 }
 
 .showtime__cinema {
@@ -389,9 +307,113 @@
     color: #fff;
 }
 
+.movie__showtime-header {
+    margin-bottom: 16px;
+}
+
+.movie__filter {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.filter__date {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.date-prev,
+.date-next {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.date-track {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.date-slide {
+    display: flex;
+    align-items: center;
+}
+
+.date-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.date-item span {
+    color: #000;
+}
+
+.date-item.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.date-item.active span {
+    color: #fff;
+}
+
+.filter__location {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.location-item {
+    flex: 1;
+    min-width: 175px;
+}
+
+.location-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    font-size: var(--font-size-base);
+    color: #111;
+    cursor: pointer;
+    width: 175px;
+    height: 37px;
+}
+
+.location-dropdown svg {
+    width: 20px;
+    height: 20px;
+}
+
+.line {
+    height: 1px;
+    background-color: #ccc;
+    margin: 16px 0;
+}
+
+.showtime__list {
+    margin-top: 16px;
+}
+
 .layout_content {
     display: grid;
-    grid-template-rows: 66% 33%;
+    grid-template-rows: auto auto;
+    /* Changed from 66% 33% to auto */
     width: 100%;
 }
 
@@ -399,7 +421,6 @@
     grid-row: 2 / 3;
     width: 100%;
     position: relative;
-    bottom: 846px;
 }
 
 .layout_content_right {
