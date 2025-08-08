@@ -12,6 +12,7 @@ import AdvertiseSection from "../../components/Advertise/AdvertiseSection";
 import Banner from "../../components/Banner";
 import { ApiHandlerFilmComment } from "../../service/api/top/APiFilmComment";
 import { MovieDetail } from "../../components/MovieDetailPage/MovieDetail";
+
 const TopPage = () => {
     // API Banner
     const [banners, setBanners] = useState([]);
@@ -35,6 +36,7 @@ const TopPage = () => {
         const fetchShowingFilms = async () => {
             try {
                 const response = await ApiHandlerShowing.fetchShowingFilms();
+                console.log("API response for showing films:", response);
                 const movies = response?.data?.result?.map(movie => ({
                     imgSrc: movie.imagePortrait,
                     title: movie.name,
@@ -84,14 +86,16 @@ const TopPage = () => {
 
     return (
         <div className="top-page">
-            <Header />
-            <Banner banners={banners} />
+            <Header showingMovies={showingMovies} comingMovies={comingMovies} />
+            <div className="main-content">
+                {/* <Banner banners={banners} />
             <MovieShowing showingMovies={showingMovies} comingMovies={comingMovies} />
             <MovieReview filmComments={filmComments} />
             <PromotionalNews />
             <AdvertiseSection />
-            <Description />
-            {/* <MovieDetail /> */}
+            <Description /> */}
+                <MovieDetail />
+            </div>
             <Footer />
         </div>
     );
