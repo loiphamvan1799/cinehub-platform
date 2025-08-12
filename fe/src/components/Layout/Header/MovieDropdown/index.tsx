@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
 import StarIcon from '@mui/icons-material/Star';
+import { Movie } from '../../../../types/Movie';
 
-const MoviesDropdown = ({ showingMovies, comingMovies }) => {
+interface MovieProps {
+    showingMovies: Movie[];
+    comingMovies: Movie[];
+}
+const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
     const imax = [
         {
             title: "F1®",
@@ -37,10 +42,10 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
             <div className="dropdown-content">
                 <div className="movie-section">
                     <div>
-                        <Link className="section-title">
+                        <div className="section-title">
                             <span className="section-indicator"></span>
                             Phim Đang Chiếu
-                        </Link>
+                        </div>
                     </div>
                     <ul className="movie-list">
                         {Array.isArray(showingMovies) && showingMovies.length > 0 ? (
@@ -50,13 +55,13 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                                         <div className="card-image">
                                             <div className="hover-overlay">
                                                 <div className="hover-content">
-                                                    <Link className="buy-ticket-btn">
+                                                    <div className="buy-ticket-btn">
                                                         <LocalActivityOutlinedIcon className="ticket-icon" />
                                                         Mua vé
-                                                    </Link>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <Link>
+                                            <div>
                                                 <img
                                                     alt={movie.title}
                                                     src={movie.imgSrc}
@@ -65,7 +70,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                                                     className="movie-poster"
                                                     style={{ color: 'transparent' }}
                                                 />
-                                            </Link>
+                                            </div>
                                             <div className="rating">
                                                 <p className="rating-text rating-frame">
                                                     <StarIcon className="star-icon" />
@@ -79,7 +84,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                                             )}
                                         </div>
                                         <div className="card-title">
-                                            <Link className="movie-title">{movie.title}</Link>
+                                            <div className="movie-title">{movie.title}</div>
                                         </div>
                                     </div>
                                 </li>
@@ -91,10 +96,10 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                 </div>
                 <div className="movie-section">
                     <div>
-                        <Link className="section-title">
+                        <div className="section-title">
                             <span className="section-indicator"></span>
                             Phim sắp chiếu
-                        </Link>
+                        </div>
                     </div>
                     <ul className="movie-list">
 
@@ -105,15 +110,15 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                                         <div className="card-image">
                                             <div className="hover-overlay">
                                                 <div className="hover-content">
-                                                    <Link className="buy-ticket-btn">
+                                                    <div className="buy-ticket-btn">
                                                         <LocalActivityOutlinedIcon className="ticket-icon" />
                                                         Mua vé
-                                                    </Link>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <Link>
+                                            <div>
                                                 <img alt={movie.title} src={movie.imgSrc} width="140" height="200" className="movie-poster" style={{ color: 'transparent' }} />
-                                            </Link>
+                                            </div>
                                             <div className="rating">
                                                 <p className="rating-text rating-frame">
                                                     <StarIcon className="star-icon" />
@@ -127,7 +132,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                                             )}
                                         </div>
                                         <div className="card-title">
-                                            <Link className="movie-title">{movie.title}</Link>
+                                            <div className="movie-title">{movie.title}</div>
                                         </div>
                                     </div>
                                 </li>
@@ -139,10 +144,10 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                 </div>
                 <div className="movie-section">
                     <div>
-                        <Link className="section-title">
+                        <div className="section-title">
                             <span className="section-indicator"></span>
                             Phim IMAX
-                        </Link>
+                        </div>
                     </div>
                     <ul className="movie-list">
                         {imax.map((movie, index) => (
@@ -151,15 +156,15 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                                     <div className="card-image">
                                         <div className="hover-overlay">
                                             <div className="hover-content">
-                                                <Link className="buy-ticket-btn">
+                                                <div className="buy-ticket-btn">
                                                     <LocalActivityOutlinedIcon className="ticket-icon" />
                                                     Mua vé
-                                                </Link>
+                                                </div>
                                             </div>
                                         </div>
-                                        <Link>
+                                        <div>
                                             <img alt={movie.title} src={movie.imgSrc} width="140" height="200" className="movie-poster" style={{ color: 'transparent' }} />
-                                        </Link>
+                                        </div>
                                         <div className="rating">
                                             <p className="rating-text rating-frame">
                                                 <StarIcon className="star-icon" />
@@ -173,7 +178,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }) => {
                                         )}
                                     </div>
                                     <div className="card-title">
-                                        <Link className="movie-title">{movie.title}</Link>
+                                        <div className="movie-title">{movie.title}</div>
                                     </div>
                                 </div>
                             </li>

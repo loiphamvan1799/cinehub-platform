@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './styles.css';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -6,6 +7,8 @@ import StarIcon from '@mui/icons-material/Star';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import YouTube from 'react-youtube';
+import Modal from 'react-modal';
 import MovieDetailShowing from '../MovieDetail_Showing';
 
 const formatContent = (content) => {
@@ -29,6 +32,7 @@ const MOVIE_INFO = {
   actors: "Pedro Pascal, Vanessa Kirby, Joseph Quinn, Ebon Moss-Bachrach",
   rating: "9.7",
   ratingVotes: "(281 votes)",
+  trailerUrl: "zsIKAQX7Q9E",
   fullContent: `
     <p><b>Phim Điện Ảnh Thám Tử Lừng Danh Conan: Dư Ảnh Của Độc Nhãn</b> kể về một vụ án bí ẩn xảy ra trên những ngọn núi tuyết của Nagano, khiến Conan và các thám tử phải cùng giải bài toán khó từ quá khứ.</p>
     <p>Bị thương nặng trong trận tuyết lở nhiều năm trước, thanh tra Yamato Kansuke phải đối diện với kí ức đau thương khi điều tra vụ tấn công tại Đài quan sát Nobeyama. Cũng trong lúc này, ông bác thám tử ngủ gật Mori Kogoro lại nhận được cuộc gọi từ đồng nghiệp cũ, tiết lộ về mối liên hệ đáng ngờ giữa anh và một vụ án bị lãng quên.</p>
@@ -36,7 +40,7 @@ const MOVIE_INFO = {
     <p>Kí ức của Yamato Kansuke chính là chìa khóa vấn đề!</p>
     <p><b>Detective Conan: One-Eyed Flashback</b>/ <b>Phim Điện Ảnh Thám Tử Lừng Danh Conan: Dư Ảnh Của Độc Nhãn</b> suất chiếu sớm 19-20.07 (Không áp dụng Movie Voucher), dự kiến khởi chiếu 25.07.2025 tại các <a href="https://www.galaxycine.vn/">rạp chiếu phim</a> toàn quốc.</p>
 `,
-}
+};
 
 const SHOWTIME_DATES = [
   { day: "Hôm nay", date: "30/07" },
@@ -78,26 +82,65 @@ const SHOWTIME_CINEMAS = [
 ];
 
 export const MovieDetail = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handlePlayClick = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const youtubeOpts = {
+    height: '360',
+    width: '640',
+    playerVars: {
+      autoplay: 1,
+      controls: 1,
+      modestbranding: 1,
+      rel: 0,
+    },
+  };
+
+  Modal.setAppElement('#root');
+
   return (
     <div>
       <div className="movie-poster">
         <div className="movie-poster__container">
           <div className="movie-poster__overlay"></div>
-          <div className="movie-poster__header">
-            <div className="movie-poster__image-wrapper">
-              <img
-                alt="Movie Poster"
-                loading="lazy"
-                className="movie-poster__image"
-                src={MOVIE_INFO.posterUrl}
-              />
-              <button className="movie-poster__play-button">
-                <PlayCircleIcon style={{ width: "85px", height: "85px", color: "white" }} className="movie-poster__play-icon" />
-              </button>
-            </div>
+          <div className="movie-poster__image-wrapper">
+            <img
+              alt="Movie Poster"
+              loading="lazy"
+              className="movie-poster__image"
+              src={MOVIE_INFO.posterUrl}
+            />
+            <button className="movie-poster__play-button" onClick={handlePlayClick}>
+              <PlayCircleIcon style={{ width: "85px", height: "85px", color: "white" }} className="movie-poster__play-icon" />
+            </button>
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        shouldCloseOnOverlayClick={true}
+        className="video-modal"
+      >
+        <button
+          onClick={closeModal}
+          className="video-modal__close-btn"
+        >
+          &times;
+        </button>
+        <YouTube
+          videoId={MOVIE_INFO.trailerUrl}
+          opts={youtubeOpts}
+          className="movie-poster__video"
+        />
+      </Modal>
       <div className='layout_content'>
         <div className='layout_content_left'>
           <div className="movie-poster__main">

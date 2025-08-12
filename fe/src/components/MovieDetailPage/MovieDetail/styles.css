@@ -204,7 +204,7 @@
     padding: 16px;
     background-color: var(--background-color);
     color: #000;
-    width: 930px;
+    width: 1008px;
     position: relative;
     left: 40px;
 }
@@ -340,7 +340,6 @@
 }
 
 .date-slide {
-    display: flex;
     align-items: center;
 }
 
@@ -348,7 +347,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
     padding: 10px;
     text-align: center;
     text-transform: capitalize;
@@ -413,7 +411,6 @@
 .layout_content {
     display: grid;
     grid-template-rows: auto auto;
-    /* Changed from 66% 33% to auto */
     width: 100%;
 }
 
@@ -470,4 +467,45 @@
     .time-button {
         height: 35px;
     }
+}
+
+.video-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: 640px;
+    height: 400px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.video-modal__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.ReactModal__Overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-poster__video {
+    width: 100px;
+    height: 200px;
 }
