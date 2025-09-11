@@ -1,18 +1,12 @@
-package com.cinehub.platform.be.domain.cinema.model.db;
+package com.cinehub.platform.be.domain.cinema.model.response;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-@Table(name = "cinema")
 @Data
-public class Cinema {
-    @Id
+public class CinemaResponse {
+
     private String id;
     private String name;
     private String slug;
