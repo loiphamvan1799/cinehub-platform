@@ -35,7 +35,7 @@ const MovieDetailShowing = () => {
         <span className="title-border"></span>
         <h1 className="title-text">Phim đang chiếu</h1>
       </div>
-      <div>
+      <>
         <ul className="showing-list">
           {movies.map((movie, index) => (
             <li key={index} className="showing-item">
@@ -80,7 +80,7 @@ const MovieDetailShowing = () => {
         <div className="showing-more">
           <ButtonWrapper />
         </div>
-      </div>
+      </>
     </div>
   );
 };

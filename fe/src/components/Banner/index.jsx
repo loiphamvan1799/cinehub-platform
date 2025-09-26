@@ -1,9 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import FilterSection from "../FilterSection";
 
 const Banner = ({ banners }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [dragStart, setDragStart] = useState(null);
+    const [dragEnd, setDragEnd] = useState(null);
+    const carouselRef = useRef(null);
+
+    const minDragDistance = 50;
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % banners.length);
@@ -17,6 +22,38 @@ const Banner = ({ banners }) => {
         setCurrentSlide(index);
     };
 
+    const onMouseDown = (e) => {
+        setDragStart(e.clientX);
+        setDragEnd(null);
+        carouselRef.current.style.cursor = "grabbing";
+    };
+
+    const onMouseMove = (e) => {
+        if (dragStart !== null) {
+            setDragEnd(e.clientX);
+        }
+    };
+
+    const onMouseUp = () => {
+        if (!dragStart || !dragEnd) {
+            carouselRef.current.style.cursor = "grab";
+            return;
+        }
+        const distance = dragStart - dragEnd;
+        const isLeftDrag = distance > minDragDistance;
+        const isRightDrag = distance < -minDragDistance;
+
+        if (isLeftDrag) {
+            nextSlide();
+        } else if (isRightDrag) {
+            prevSlide();
+        }
+
+        setDragStart(null);
+        setDragEnd(null);
+        carouselRef.current.style.cursor = "grab";
+    };
+
     useEffect(() => {
         if (banners.length === 0) return;
         const interval = setInterval(() => {
@@ -27,7 +64,14 @@ const Banner = ({ banners }) => {
 
     return (
         <div className="banner">
-            <div className="carousel__wrapper">
+            <div
+                className="carousel__wrapper"
+                ref={carouselRef}
+                onMouseDown={onMouseDown}
+                onMouseMove={onMouseMove}
+                onMouseUp={onMouseUp}
+                onMouseLeave={onMouseUp}
+            >
                 {banners.map((banner, index) => (
                     <img
                         key={banner.id || index}
@@ -47,7 +91,7 @@ const Banner = ({ banners }) => {
                     {banners.map((_, index) => (
                         <span
                             key={index}
-                            className={index === currentSlide ? 'active' : ''}
+                            className={index === currentSlide ? "active" : ""}
                             onClick={() => goToSlide(index)}
                         ></span>
                     ))}

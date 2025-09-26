@@ -88,13 +88,13 @@ const TopPage = () => {
         <div className="top-page">
             <Header showingMovies={showingMovies} comingMovies={comingMovies} />
             <div className="main-content">
-                {/* <Banner banners={banners} />
-            <MovieShowing showingMovies={showingMovies} comingMovies={comingMovies} />
-            <MovieReview filmComments={filmComments} />
-            <PromotionalNews />
-            <AdvertiseSection />
-            <Description /> */}
-                <MovieDetail />
+                <Banner banners={banners} />
+                <MovieShowing showingMovies={showingMovies} comingMovies={comingMovies} />
+                <MovieReview filmComments={filmComments} />
+                <PromotionalNews />
+                <AdvertiseSection />
+                <Description />
+                {/* <MovieDetail /> */}
             </div>
             <Footer />
         </div>

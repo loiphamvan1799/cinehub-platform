@@ -158,16 +158,18 @@ const Header = ({ showingMovies, comingMovies }) => {
                     )}
                 </div>
                 <div className="user-options">
-                    <span onClick={toggleLogin} className="login-link">Đăng Nhập</span>
+                    <span
+                        // onClick={toggleLogin} 
+                        className="login-link">Đăng Nhập</span>
                 </div>
             </header>
-            {isLoginVisible && (
+            {/* {isLoginVisible && (
                 <div className="login-modal">
                     <div ref={loginModalRef} className="login-modal-content">
                         <Login onClose={toggleLogin} />
                     </div>
                 </div>
-            )}
+            )} */}
         </>
     );
 };

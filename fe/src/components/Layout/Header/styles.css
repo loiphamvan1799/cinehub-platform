@@ -112,8 +112,8 @@ nav ul li:hover .dropdownn {
 }
 
 .dropdownn li:hover {
-    background-color: rgb(246, 193, 119);
-    color: #fff;
+    background-color: #fff1e6;
+    color: rgb(249, 128, 32);
 }
 
 .dropdownn {
@@ -128,4 +128,8 @@ nav ul li:hover .dropdownn {
     padding: 5px 0;
     display: none;
     z-index: 1001;
+}
+
+.login-link {
+    cursor: pointer;
 }
