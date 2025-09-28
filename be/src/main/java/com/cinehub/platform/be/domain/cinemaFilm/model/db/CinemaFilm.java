@@ -1,4 +1,4 @@
-package com.cinehub.platform.be.domain.cinema.model.db;
+package com.cinehub.platform.be.domain.cinemaFilm.model.db;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -17,4 +17,5 @@ public class CinemaFilm {
     private FilmCinemaFormat format;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private String note;
 }

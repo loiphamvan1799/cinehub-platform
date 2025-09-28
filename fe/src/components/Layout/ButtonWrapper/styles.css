@@ -9,7 +9,6 @@
 .seeMore {
     display: flex;
     justify-content: center;
-    padding: 5px 15px;
     border: 0.5px solid rgb(227, 150, 94);
     border-radius: 5px;
     cursor: pointer;

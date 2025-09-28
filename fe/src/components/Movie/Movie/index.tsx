@@ -7,12 +7,12 @@ import { Movie } from '../../../types/Movie';
 import MovieCard from "../MovieCard";
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 
-interface MovieShowingProps {
+interface MovieProps {
     showingMovies: Movie[];
     comingMovies: Movie[];
 }
 
-const MovieShowing = ({ showingMovies, comingMovies }: MovieShowingProps) => {
+const MovieShowing = ({ showingMovies, comingMovies }: MovieProps) => {
     const MAX_MOVIE_SHOWMORE = 8;
     const [activeTab, setActiveTab] = useState<'nowShowing' | 'comingSoon' | 'movieImax'>('nowShowing');
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);

@@ -41,7 +41,7 @@ public class ApiResponseWrapperAdvice implements ResponseBodyAdvice<Object> {
             data.put("total", ((List<?>) body).size());
             data.put("result", body);
         } else {
-            data = Map.of("result", body);
+            data.put("result", body);
         }
 
         return new ApiResponse<>(meta, data);

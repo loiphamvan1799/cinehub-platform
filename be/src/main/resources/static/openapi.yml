@@ -1,0 +1,124 @@
+openapi: 3.0.1
+info:
+  title: CinemaHub API
+  description: API documentation for CinemaHub system (Spring Boot 3 + OpenAPI 3)
+  version: v1.0.0
+  contact:
+    name: Dev Team
+    url: https://cinehub.example.com
+    email: support@cinehub.example.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: http://localhost:8080
+    description: Local server
+paths:
+  /api/cinema-films/film:
+    get:
+      tags:
+        - Cinema Films
+      summary: Get cinemas by film ID
+      description: Retrieve a list of cinemas showing a specific film
+      parameters:
+        - name: filmId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the film to search cinemas for
+      responses:
+        '200':
+          description: List of cinemas successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CinemaFilmResponse'
+        '400':
+          description: Invalid film ID supplied (Bad Request)
+        '404':
+          description: No cinemas found for the given film ID (Not found)
+
+  /api/cinema-films/showingInfo:
+    get:
+      tags:
+        - Cinema Films
+      summary: Get showing information for a film at a specific cinema
+      description: Retrieve showtimes for a specific film at a given cinema
+      parameters:
+        - name: filmId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the film
+        - name: cinemaId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the cinema
+      responses:
+        '200':
+          description: Showing information successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShowTimeFilmResponse'
+        '400':
+          description: Invalid parameters supplied (Bad Request)
+        '404':
+          description: No showing information found (Not found)
+
+components:
+  schemas:
+    CinemaFilmResponse:
+      type: object
+      properties:
+        cinemaId:
+          type: string
+          description: ID of the cinema
+        name:
+          type: string
+          description: Name of the cinema
+        format:
+          type: string
+          enum: [ SHOWING, COMING, IMAX ]
+          description: Format of the film showing
+        showTime:
+          type: string
+          format: time
+          description: Time of the show
+        startDate:
+          type: string
+          format: date-time
+          description: Start date and time of the showing period
+        endDate:
+          type: string
+          format: date-time
+          description: End date and time of the showing period
+        note:
+          type: string
+          description: Additional notes
+
+    ShowTimeFilmResponse:
+      type: object
+      properties:
+        cinemaId:
+          type: string
+          description: ID of the cinema
+        filmId:
+          type: string
+          description: ID of the film
+        showDate:
+          type: string
+          format: date
+          description: Date of the show
+        showTime:
+          type: string
+          format: time
+          description: Time of the show
