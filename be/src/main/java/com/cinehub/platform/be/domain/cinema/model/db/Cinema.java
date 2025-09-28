@@ -25,5 +25,5 @@ public class Cinema {
     private String imagePortrait;
     private List<String> imageUrls;
     private boolean reward;
-    private int order;
+    private int displayOrder;
 }

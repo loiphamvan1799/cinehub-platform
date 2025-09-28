@@ -2,6 +2,7 @@
 package com.cinehub.platform.be.app.cinema;
 
 import com.cinehub.platform.be.domain.cinema.model.db.Cinema;
+import com.cinehub.platform.be.domain.cinema.model.response.CinemaResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class CinemaController {
     private final CinemaService cinemaService;
 
     @GetMapping
-    public ResponseEntity<List<Cinema>> getAllCinemas() {
+    public ResponseEntity<List<CinemaResponse>> getAllCinemas() {
         return ResponseEntity.ok(cinemaService.getAllCinemas());
     }
 }

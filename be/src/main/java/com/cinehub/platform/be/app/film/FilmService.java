@@ -1,13 +1,12 @@
 package com.cinehub.platform.be.app.film;
 
-import com.cinehub.platform.be.adapters.persistence.film.CinemaFilmRepository;
+import com.cinehub.platform.be.adapters.persistence.cinemaFilm.CinemaFilmRepository;
 import com.cinehub.platform.be.adapters.persistence.film.FilmRepository;
-import com.cinehub.platform.be.domain.cinema.model.db.CinemaFilm;
-import com.cinehub.platform.be.domain.cinema.model.db.FilmCinemaFormat;
-import com.cinehub.platform.be.domain.cinema.model.response.MapCinemaFilmFormat;
+import com.cinehub.platform.be.domain.cinemaFilm.model.db.CinemaFilm;
+import com.cinehub.platform.be.domain.cinemaFilm.model.db.FilmCinemaFormat;
+import com.cinehub.platform.be.domain.cinemaFilm.model.response.MapCinemaFilmFormat;
 import com.cinehub.platform.be.domain.film.model.db.Film;
 import com.cinehub.platform.be.domain.film.model.response.FilmResponse;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
