@@ -9,16 +9,22 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface CinemaFilmRepository extends JpaRepository<CinemaFilm, Long> {
-    List<CinemaFilm> findByStartDateBeforeAndEndDateAfter(LocalDateTime time1,
-                                                          LocalDateTime time2);
-    List<CinemaFilm> findByStartDateAfter(LocalDateTime localDateTime);
 
     @Query("SELECT cf FROM CinemaFilm cf " +
             "WHERE (cf.format = :format AND cf.startDate > :localDateTime) " +
             "OR (cf.format = :format AND cf.startDate <= :localDateTime " +
-            "AND cf.endDate >= :localDateTime)")
-    List<CinemaFilm> findFilmsImaxIsGoing(FilmCinemaFormat format,
+            "AND cf.endDate >= :localDateTime) " +
+            "ORDER BY cf.startDate DESC")
+    List<CinemaFilm> findFilmsImax(FilmCinemaFormat format,
                                           LocalDateTime localDateTime);
+
+    @Query(value = "SELECT * FROM cinema_film WHERE start_date <= :localDateTime " +
+            "AND end_date >= :localDateTime ORDER BY start_date DESC", nativeQuery = true)
+    List<CinemaFilm> findFilmShowing(LocalDateTime localDateTime);
+
+    @Query(value = "SELECT * FROM cinema_film WHERE start_date > :localDateTime " +
+            "ORDER BY start_date DESC", nativeQuery = true)
+    List<CinemaFilm> findFilmComming(LocalDateTime localDateTime);
 
     List<CinemaFilm> findByFilmIdOrderByStartDateAsc(String filmId);
 

@@ -39,11 +39,11 @@ public class FilmService {
 
         return switch (format) {
             case FilmCinemaFormat.SHOWING ->
-                    cinemaFilmRepository.findByStartDateBeforeAndEndDateAfter(now, now);
+                    cinemaFilmRepository.findFilmShowing(now);
             case FilmCinemaFormat.COMING ->
-                    cinemaFilmRepository.findByStartDateAfter(now);
+                    cinemaFilmRepository.findFilmComming(now);
             case FilmCinemaFormat.IMAX ->
-                    cinemaFilmRepository.findFilmsImaxIsGoing(FilmCinemaFormat.IMAX, now);
+                    cinemaFilmRepository.findFilmsImax(FilmCinemaFormat.IMAX, now);
         };
     }
 
