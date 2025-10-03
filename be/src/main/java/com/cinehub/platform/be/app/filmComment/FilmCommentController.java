@@ -1,6 +1,6 @@
-package com.cinehub.platform.be.app.film.filmComment;
+package com.cinehub.platform.be.app.filmComment;
 
-import com.cinehub.platform.be.domain.film.model.response.FilmCommentResponse;
+import com.cinehub.platform.be.domain.response.filmComment.FilmCommentHomeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +16,10 @@ public class FilmCommentController {
 
     private final FilmCommentService filmCommentService;
 
-    @GetMapping
-    public ResponseEntity<List<FilmCommentResponse>> getAllComments() {
-        return ResponseEntity.ok(filmCommentService.getAllComments());
-    }
-
-    @GetMapping("/hot")
-    public ResponseEntity<List<FilmCommentResponse>> getHotComments() {
-        return ResponseEntity.ok(filmCommentService.getHotComments());
+    @GetMapping("/dispay-home")
+    public ResponseEntity<List<FilmCommentHomeResponse>> getCommentsDisplayHome() {
+        List<FilmCommentHomeResponse> comments =filmCommentService.getCommentsDisplayHome();
+        return ResponseEntity.ok(comments);
     }
 }
 

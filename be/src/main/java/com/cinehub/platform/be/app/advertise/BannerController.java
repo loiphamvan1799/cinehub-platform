@@ -1,6 +1,6 @@
 package com.cinehub.platform.be.app.advertise;
 
-import com.cinehub.platform.be.domain.advertise.model.db.Banner;
+import com.cinehub.platform.be.domain.db.advertise.Banner;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
