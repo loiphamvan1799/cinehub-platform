@@ -1,4 +1,4 @@
-package com.cinehub.platform.be.domain.advertise.model.db;
+package com.cinehub.platform.be.domain.db.advertise;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

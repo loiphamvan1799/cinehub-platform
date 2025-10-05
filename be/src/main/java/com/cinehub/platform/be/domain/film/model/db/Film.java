@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -18,8 +19,8 @@ public class Film {
     private String name;
     private String age;
     private int duration;
-    private String startDate;
-    private String endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private String imageLandscape;
     private String imagePortrait;
     private String slug;
@@ -27,5 +28,6 @@ public class Film {
     private double rate;
     private int totalVotes;
     private int views;
+    @CreationTimestamp
     private LocalDateTime createdAt;
 }

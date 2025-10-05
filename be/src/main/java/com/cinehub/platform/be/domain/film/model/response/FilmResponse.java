@@ -14,8 +14,8 @@ public class FilmResponse {
     public String format;
 
     public int duration;
-    public String startDate;
-    public String endDate;
+    public LocalDateTime startDate;
+    public LocalDateTime endDate;
     public String imageLandscape;
     public String imagePortrait;
     public String slug;

@@ -18,17 +18,17 @@ public interface CinemaFilmRepository extends JpaRepository<CinemaFilm, Long> {
     List<CinemaFilm> findFilmsImax(FilmCinemaFormat format,
                                           LocalDateTime localDateTime);
 
-    @Query(value = "SELECT * FROM cinema_film WHERE start_date <= :localDateTime " +
+    @Query(value = "SELECT * FROM cinemas_films WHERE start_date <= :localDateTime " +
             "AND end_date >= :localDateTime ORDER BY start_date DESC", nativeQuery = true)
     List<CinemaFilm> findFilmShowing(LocalDateTime localDateTime);
 
-    @Query(value = "SELECT * FROM cinema_film WHERE start_date > :localDateTime " +
+    @Query(value = "SELECT * FROM cinemas_films WHERE start_date > :localDateTime " +
             "ORDER BY start_date DESC", nativeQuery = true)
     List<CinemaFilm> findFilmComming(LocalDateTime localDateTime);
 
     List<CinemaFilm> findByFilmIdOrderByStartDateAsc(String filmId);
 
-    @Query(value = "SELECT * FROM cinema_film WHERE film_id = :filmId " +
+    @Query(value = "SELECT * FROM cinemas_films WHERE film_id = :filmId " +
             "AND cinema_id = :cinemaId ORDER BY start_date ASC", nativeQuery = true)
     List<CinemaFilm> findByFilmIdAndCinemaId(String filmId, String cinemaId);
 }

@@ -2,11 +2,12 @@ package com.cinehub.platform.be.domain.cinemaFilm.model.db;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "cinema_film")
+@Table(name = "cinemas_films")
 @Data
 public class CinemaFilm {
     @Id
@@ -18,4 +19,6 @@ public class CinemaFilm {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String note;
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }
