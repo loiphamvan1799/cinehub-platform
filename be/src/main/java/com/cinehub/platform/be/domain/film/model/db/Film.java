@@ -19,8 +19,8 @@ public class Film {
     private String name;
     private String age;
     private int duration;
-    private String startDate;
-    private String endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private String imageLandscape;
     private String imagePortrait;
     private String slug;
