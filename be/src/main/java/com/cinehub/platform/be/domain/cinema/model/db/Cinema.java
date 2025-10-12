@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "cinema")
+@Table(name = "cinemas")
 @Data
 public class Cinema {
     @Id

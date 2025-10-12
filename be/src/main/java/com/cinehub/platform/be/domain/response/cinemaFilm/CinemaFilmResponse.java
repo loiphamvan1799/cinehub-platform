@@ -1,4 +1,4 @@
-package com.cinehub.platform.be.domain.cinemaFilm.model.response;
+package com.cinehub.platform.be.domain.response.cinemaFilm;
 
 import com.cinehub.platform.be.domain.cinemaFilm.model.db.FilmCinemaFormat;
 import lombok.Builder;
@@ -16,5 +16,4 @@ public class CinemaFilmResponse {
     private LocalTime showTime;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String note;
 }

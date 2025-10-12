@@ -18,16 +18,14 @@ public class Film {
     private String id;
     private String name;
     private String age;
-    private int duration;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private Integer duration;
     private String imageLandscape;
     private String imagePortrait;
     private String slug;
     private String trailer;
     private double rate;
-    private int totalVotes;
-    private int views;
+    private Integer totalVotes;
+    private Integer views;
     @CreationTimestamp
     private LocalDateTime createdAt;
 }

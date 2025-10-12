@@ -1,4 +1,4 @@
-package com.cinehub.platform.be.domain.cinemaFilm.model.response;
+package com.cinehub.platform.be.domain.response.cinemaFilm;
 
 import lombok.Builder;
 import lombok.Data;
