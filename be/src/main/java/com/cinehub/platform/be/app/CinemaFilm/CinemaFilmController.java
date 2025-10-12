@@ -1,7 +1,7 @@
 package com.cinehub.platform.be.app.CinemaFilm;
 
-import com.cinehub.platform.be.domain.cinemaFilm.model.response.CinemaFilmResponse;
-import com.cinehub.platform.be.domain.cinemaFilm.model.response.ShowTimeFilmResponse;
+import com.cinehub.platform.be.domain.response.cinemaFilm.CinemaFilmResponse;
+import com.cinehub.platform.be.domain.response.cinemaFilm.ShowTimeFilmResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

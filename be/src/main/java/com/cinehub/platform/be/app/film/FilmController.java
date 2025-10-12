@@ -1,6 +1,8 @@
 package com.cinehub.platform.be.app.film;
 
+import com.cinehub.platform.be.domain.cinemaFilm.model.db.FilmCinemaFormat;
 import com.cinehub.platform.be.domain.film.model.response.FilmResponse;
+import com.cinehub.platform.be.domain.response.film.FilmCardResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,17 +20,17 @@ public class FilmController {
     }
 
     @GetMapping("/showing")
-    public List<FilmResponse> getShowingFilms() {
-        return filmService.getShowingFilms();
+    public List<FilmCardResponse> getShowingFilms() {
+        return filmService.getFilmsByFormat(FilmCinemaFormat.SHOWING);
     }
 
     @GetMapping("/comming")
-    public List<FilmResponse> getComingFilm() {
-        return filmService.getComingFilms();
+    public List<FilmCardResponse> getComingFilm() {
+        return filmService.getFilmsByFormat(FilmCinemaFormat.COMING);
     }
 
     @GetMapping("/imax")
-    public List<FilmResponse> getImaxFilm() {
-        return filmService.getImaxFilms();
+    public List<FilmCardResponse> getImaxFilm() {
+        return filmService.getFilmsByFormat(FilmCinemaFormat.IMAX);
     }
 }
