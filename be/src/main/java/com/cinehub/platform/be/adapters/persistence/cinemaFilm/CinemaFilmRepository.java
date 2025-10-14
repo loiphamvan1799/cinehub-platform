@@ -47,12 +47,7 @@ public interface CinemaFilmRepository extends JpaRepository<CinemaFilm, String> 
     List<IFilmCardResponse> findFilmsImax(@Param("format") FilmCinemaFormat format,
                                          @Param("currentDateTime") LocalDateTime currentDateTime);
 
-    @Query("""
-            SELECT cf FROM CinemaFilm cf
-            WHERE cf.filmId = :filmId
-            ORDER BY cf.startDate ASC
-            """)
-    List<CinemaFilm> findByFilmIdOrderByStartDateAsc(@Param("filmId") String filmId);
+    List<CinemaFilm> findByFilmIdOrderByStartDateAsc(String filmId);
 
     List<CinemaFilm> findByFilmIdAndCinemaId(String filmId, String cinemaId);
 
