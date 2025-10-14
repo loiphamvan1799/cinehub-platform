@@ -6,7 +6,7 @@ import com.cinehub.platform.be.domain.cinema.model.db.Cinema;
 import com.cinehub.platform.be.domain.cinemaFilm.model.db.CinemaFilm;
 import com.cinehub.platform.be.domain.response.cinemaFilm.CinemaFilmResponse;
 import com.cinehub.platform.be.domain.response.cinemaFilm.ShowTimeFilmResponse;
-import jakarta.persistence.EntityNotFoundException;
+import com.cinehub.platform.be.common.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +23,7 @@ public class CinemaFilmService {
     }
 
     public List<ShowTimeFilmResponse> getShowTimeInformation(String filmId, String cinemaId) {
+
         List<CinemaFilm> cinemaFilms = cinemaFilmRepository.findByFilmIdAndCinemaId(filmId, cinemaId);
         return cinemaFilms.stream()
                 .map(cinemaFilm -> ShowTimeFilmResponse.builder()
@@ -42,9 +43,7 @@ public class CinemaFilmService {
 
     private CinemaFilmResponse toResponse(CinemaFilm cinemaFilm) {
         Cinema cinema = cinemaRepository.findById(cinemaFilm.getCinemaId())
-                .orElseThrow(() -> new EntityNotFoundException(
-                        "Cinema not found with id: " + cinemaFilm.getCinemaId()
-                ));
+                .orElseThrow(() -> new ResourceNotFoundException("Cinema not found with id: " + cinemaFilm.getCinemaId()));
 
         return CinemaFilmResponse.builder()
                 .cinemaId(cinemaFilm.getCinemaId())
