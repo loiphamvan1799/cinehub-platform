@@ -5,12 +5,11 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Data
 @Builder
 public class ShowTimeFilmResponse {
-    private String cinemaId;
-    private String FilmId;
     private LocalDate showDate;
-    private LocalTime showTime;
+    private List<LocalTime> showTime;
 }

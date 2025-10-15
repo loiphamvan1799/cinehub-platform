@@ -23,8 +23,8 @@ public class CinemaFilmController {
     @GetMapping("/showingInfo")
     public ResponseEntity<List<ShowTimeFilmResponse>> getShowingInformation(@RequestParam String filmId,
                                                                     @RequestParam String cinemaId) {
-        List<ShowTimeFilmResponse> showTimeFilms = cinemaFilmService.getShowTimeInformation(filmId,
+        List<ShowTimeFilmResponse> showTimeFilm = cinemaFilmService.getShowTimeInformation(filmId,
                 cinemaId);
-        return ResponseEntity.ok(showTimeFilms);
+        return ResponseEntity.ok(showTimeFilm);
     }
 }
