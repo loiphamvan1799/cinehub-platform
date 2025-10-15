@@ -10,7 +10,13 @@ import com.cinehub.platform.be.common.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,12 +31,24 @@ public class CinemaFilmService {
     public List<ShowTimeFilmResponse> getShowTimeInformation(String filmId, String cinemaId) {
 
         List<CinemaFilm> cinemaFilms = cinemaFilmRepository.findByFilmIdAndCinemaId(filmId, cinemaId);
-        return cinemaFilms.stream()
-                .map(cinemaFilm -> ShowTimeFilmResponse.builder()
-                        .cinemaId(cinemaId)
-                        .FilmId(filmId)
-                        .showDate(cinemaFilm.getStartDate().toLocalDate())
-                        .showTime(cinemaFilm.getStartDate().toLocalTime())
+
+        if (Objects.isNull(cinemaFilms) || cinemaFilms.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        Map<LocalDate, List<LocalTime>> showtimesByDate = cinemaFilms.stream()
+                .collect(Collectors.groupingBy(
+                        cinemaFilm -> cinemaFilm.getStartDate().toLocalDate(),
+                        Collectors.mapping(
+                                cinemaFilm -> cinemaFilm.getStartDate().toLocalTime(),
+                                Collectors.toList()
+                        )
+                ));
+
+        return showtimesByDate.entrySet().stream()
+                .map(entry -> ShowTimeFilmResponse.builder()
+                        .showDate(entry.getKey())
+                        .showTime(entry.getValue())
                         .build())
                 .toList();
     }
