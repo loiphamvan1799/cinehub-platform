@@ -9,6 +9,7 @@ interface MovieProps {
     showingMovies: Movie[];
     comingMovies: Movie[];
 }
+
 const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
     const imax = [
         {
@@ -41,15 +42,13 @@ const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
         <div className="dropdown-container">
             <div className="dropdown-content">
                 <div className="movie-section">
-                    <div>
-                        <div className="section-title">
-                            <span className="section-indicator"></span>
-                            Phim Đang Chiếu
-                        </div>
+                    <div className="section-title">
+                        <span className="section-indicator"></span>
+                        Phim Đang Chiếu
                     </div>
                     <ul className="movie-list">
                         {Array.isArray(showingMovies) && showingMovies.length > 0 ? (
-                            showingMovies.map((movie, index) => (
+                            showingMovies.slice(0, 4).map((movie, index) => (
                                 <li key={movie.id || index} className="movie-item">
                                     <div className="movie-card">
                                         <div className="card-image">
@@ -61,16 +60,13 @@ const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <img
-                                                    alt={movie.title}
-                                                    src={movie.imgSrc}
-                                                    width="140"
-                                                    height="200"
-                                                    className="movie-poster"
-                                                    style={{ color: 'transparent' }}
-                                                />
-                                            </div>
+                                            <img
+                                                alt={movie.title}
+                                                src={movie.imgSrc}
+                                                width="140"
+                                                height="200"
+                                                className="movie-poster"
+                                            />
                                             <div className="rating">
                                                 <p className="rating-text rating-frame">
                                                     <StarIcon className="star-icon" />
@@ -94,17 +90,15 @@ const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
                         )}
                     </ul>
                 </div>
+
                 <div className="movie-section">
-                    <div>
-                        <div className="section-title">
-                            <span className="section-indicator"></span>
-                            Phim sắp chiếu
-                        </div>
+                    <div className="section-title">
+                        <span className="section-indicator"></span>
+                        Phim Sắp Chiếu
                     </div>
                     <ul className="movie-list">
-
                         {Array.isArray(comingMovies) && comingMovies.length > 0 ? (
-                            comingMovies.map((movie, index) => (
+                            comingMovies.slice(0, 4).map((movie, index) => (
                                 <li key={movie.id || index} className="movie-item">
                                     <div className="movie-card">
                                         <div className="card-image">
@@ -116,9 +110,13 @@ const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <img alt={movie.title} src={movie.imgSrc} width="140" height="200" className="movie-poster" style={{ color: 'transparent' }} />
-                                            </div>
+                                            <img
+                                                alt={movie.title}
+                                                src={movie.imgSrc}
+                                                width="140"
+                                                height="200"
+                                                className="movie-poster"
+                                            />
                                             <div className="rating">
                                                 <p className="rating-text rating-frame">
                                                     <StarIcon className="star-icon" />
@@ -142,15 +140,14 @@ const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
                         )}
                     </ul>
                 </div>
+
                 <div className="movie-section">
-                    <div>
-                        <div className="section-title">
-                            <span className="section-indicator"></span>
-                            Phim IMAX
-                        </div>
+                    <div className="section-title">
+                        <span className="section-indicator"></span>
+                        Phim IMAX
                     </div>
                     <ul className="movie-list">
-                        {imax.map((movie, index) => (
+                        {imax.slice(0, 4).map((movie, index) => (
                             <li key={index} className="movie-item">
                                 <div className="movie-card">
                                     <div className="card-image">
@@ -162,9 +159,13 @@ const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div>
-                                            <img alt={movie.title} src={movie.imgSrc} width="140" height="200" className="movie-poster" style={{ color: 'transparent' }} />
-                                        </div>
+                                        <img
+                                            alt={movie.title}
+                                            src={movie.imgSrc}
+                                            width="140"
+                                            height="200"
+                                            className="movie-poster"
+                                        />
                                         <div className="rating">
                                             <p className="rating-text rating-frame">
                                                 <StarIcon className="star-icon" />
@@ -185,6 +186,7 @@ const MoviesDropdown = ({ showingMovies, comingMovies }: MovieProps) => {
                         ))}
                     </ul>
                 </div>
+
             </div>
         </div>
     );

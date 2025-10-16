@@ -38,6 +38,7 @@ const TopPage = () => {
                 const response = await ApiHandlerShowing.fetchShowingFilms();
                 console.log("API response for showing films:", response);
                 const movies = response?.data?.result?.map(movie => ({
+                    id: movie.id,
                     imgSrc: movie.imagePortrait,
                     title: movie.name,
                     rating: movie.rate.toString(),
@@ -53,6 +54,7 @@ const TopPage = () => {
             try {
                 const response = await ApiHandlerComming.fetchComingFilms();
                 const movies = response?.data?.result?.map(movie => ({
+                    id: movie.id,
                     imgSrc: movie.imagePortrait,
                     title: movie.name,
                     rating: movie.rate.toString(),
@@ -88,7 +90,7 @@ const TopPage = () => {
         <div className="top-page">
             <Header showingMovies={showingMovies} comingMovies={comingMovies} />
             <div className="main-content">
-                <Banner banners={banners} />
+                <Banner banners={banners} showingMovies={showingMovies} comingMovies={comingMovies} />
                 <MovieShowing showingMovies={showingMovies} comingMovies={comingMovies} />
                 <MovieReview filmComments={filmComments} />
                 <PromotionalNews />
