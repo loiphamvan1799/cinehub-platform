@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import FilterSection from "../FilterSection";
 
-const Banner = ({ banners }) => {
+const Banner = ({ banners, showingMovies, comingMovies }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [dragStart, setDragStart] = useState(null);
     const [dragEnd, setDragEnd] = useState(null);
@@ -97,7 +97,10 @@ const Banner = ({ banners }) => {
                     ))}
                 </div>
             </div>
-            <FilterSection />
+            <FilterSection
+                comingMovies={comingMovies}
+                showingMovies={showingMovies}
+            />
         </div>
     );
 };

@@ -32,11 +32,11 @@ public class CinemaFilmService {
 
         List<CinemaFilm> cinemaFilms = cinemaFilmRepository.findByFilmIdAndCinemaId(filmId, cinemaId);
 
-        if (Objects.isNull(cinemaFilms) || cinemaFilms.isEmpty()) {
+        if (Objects.isNull(cinemaFilms)) {
             return Collections.emptyList();
         }
 
-        Map<LocalDate, List<LocalTime>> showtimesByDate = cinemaFilms.stream()
+        Map<LocalDate, List<LocalTime>> showTimesByDate = cinemaFilms.stream()
                 .collect(Collectors.groupingBy(
                         cinemaFilm -> cinemaFilm.getStartDate().toLocalDate(),
                         Collectors.mapping(
@@ -45,7 +45,7 @@ public class CinemaFilmService {
                         )
                 ));
 
-        return showtimesByDate.entrySet().stream()
+        return showTimesByDate.entrySet().stream()
                 .map(entry -> ShowTimeFilmResponse.builder()
                         .showDate(entry.getKey())
                         .showTime(entry.getValue())
